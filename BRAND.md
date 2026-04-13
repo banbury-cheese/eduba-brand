@@ -51,16 +51,21 @@ Five named themes used for content cards and service sections:
 
 ### Fonts
 
-**Diatype** (self-hosted, files in `/fonts/`)
+**Diatype** — content & editorial font (self-hosted, files in `/fonts/`)
 - `diatype-bold.woff2` → `font-weight: 700`
 - `diatype-med.woff2` → `font-weight: 500`
 - `diatype-reg.woff2` → `font-weight: 300`
-- Usage: all UI labels, navigation, headings, buttons, brand text
+- Used for: all body text, headings, titles, descriptions, card text, hero text, subtitles, FAQ content — everything read at length
 
-**IBM Plex Mono** (Google Fonts or `@fontsource/ibm-plex-mono`)
-- Usage: default body font, content text, resource card titles, metadata, form inputs, code
+**IBM Plex Mono** — system/UI accent font (Google Fonts or `@fontsource/ibm-plex-mono`)
+- Used for: page indices (`/001`), page tags, nav links, buttons, section labels, card IDs, step indices/titles, metadata, CTAs, form inputs
 
-**Critical rule:** IBM Plex Mono is set on `body`. Diatype is applied selectively to specific UI elements. This means the default rendering is monospace — Diatype is the accent.
+**How they work together:**
+- `body` sets `font-family: IBM Plex Mono` — governs the app shell (home page, nav bar)
+- Sector/content pages set `font-family: Diatype` on their root container — flips the base for all content
+- IBM Plex Mono is then re-applied individually to system/accent elements within content pages
+
+**Mental model:** IBM Plex Mono = machine/system voice. Diatype = human/editorial voice. The shell speaks in system voice. Content experiences speak in human voice.
 
 ### Font loading (CSS)
 ```css
@@ -86,17 +91,33 @@ Five named themes used for content cards and service sections:
 
 ### Type Scale
 
-| Role | Size | Weight | Font | Other |
-|---|---|---|---|---|
-| Hero display | `clamp(120px, 20vw, 280px)` | 700 | Diatype | line-height: 0.85, letter-spacing: -0.02em |
-| Section title | `clamp(48px, 4vw, 100px)` | 600 | Diatype | |
-| Label | `clamp(14px, 1.7vw, 20px)` | 600 | Diatype | uppercase |
-| Nav UI | `11px` | 600 | Diatype | uppercase |
-| Body mono | `12px` | 400 | IBM Plex Mono | |
-| Form input | `9px` | 400 | IBM Plex Mono | |
-| Micro label | `7px` | 700 | IBM Plex Mono | uppercase, letter-spacing: 0.09em |
+**Diatype — content elements (normal/lowercase case)**
 
-**All UI text is uppercase.** Body copy (descriptions, paragraphs) is normal case.
+| Role | Size | Weight | Notes |
+|---|---|---|---|
+| Hero display (home) | `clamp(120px, 20vw, 280px)` | 700 | line-height: 0.85, letter-spacing: -0.02em |
+| Hero title (sector) | `clamp(44px, 5vw, 92px)` | 700 | white-space: pre-line |
+| Section heading | `clamp(28px, 3.4vw, 44px)` | 700 | line-height: 1.1 |
+| CTA title | `clamp(26px, 3.4vw, 40px)` | 700 | line-height: 1.1 |
+| Body / subtitle | `14–15px` | 300 | line-height: 1.6, color: $subtitle |
+| Card title | `15px` | 700 | text-transform: **lowercase** |
+| FAQ question | `14px` | 600 | text-transform: **lowercase** |
+
+**IBM Plex Mono — system/accent elements (always uppercase)**
+
+| Role | Size | Weight | Notes |
+|---|---|---|---|
+| Page index | `11px` | 700 | letter-spacing: 0.2em |
+| Page tag | `11px` | 700 | letter-spacing: 0.1em |
+| Section meta label | `16px` | 700 | |
+| Card ID | `12px` | 700 | letter-spacing: 0.05em |
+| Step index/title | `12px` | 600 | letter-spacing: 0.1em |
+| Nav links / shell UI | `11px` | 600 | |
+| Buttons (all) | `11–14px` | 600–700 | |
+| Form inputs | `9px` | 400 | |
+| Micro label | `7px` | 700 | letter-spacing: 0.09em |
+
+**Key case rules:** Diatype elements are normal/sentence case or lowercase — never uppercase. IBM Plex Mono elements are always uppercase — no exceptions. Note the intentional `text-transform: lowercase` on card titles and FAQ questions (Diatype, all-lower).
 
 ---
 
@@ -440,9 +461,10 @@ Skin:             #F9ECDF
 Cream:            #EAD5D6
 Accent:           #D8BFC0
 
-Primary font:     Diatype (bold/med/reg .woff2 in /fonts/)
-Body font:        IBM Plex Mono
-Nav size:         11px uppercase Diatype 600
+Editorial font:   Diatype — body text, headings, all content (bold/med/reg .woff2 in /fonts/)
+System font:      IBM Plex Mono — nav, buttons, labels, IDs, metadata (always uppercase)
+Shell default:    body { font-family: IBM Plex Mono }
+Content default:  .page { font-family: Diatype } — sector/content pages override shell
 
 Border radius:    4px (default)
 Frame bg:         #5D3136

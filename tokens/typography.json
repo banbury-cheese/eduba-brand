@@ -9,72 +9,146 @@
         "medium": "fonts/diatype-med.woff2",
         "regular": "fonts/diatype-reg.woff2"
       },
-      "weights": {
-        "bold": 700,
-        "medium": 500,
-        "regular": 300
-      },
-      "usage": "All UI labels, navigation, headings, brand text, buttons, form elements."
+      "weights": { "bold": 700, "medium": 500, "regular": 300 },
+      "role": "Content & editorial font",
+      "usage": "All body text, headings, titles, descriptions, card text, hero text, subtitles, FAQ content — everything read at length. Set at the page/content container level (not body). All content children inherit it."
     },
     "mono": {
       "family": "IBM Plex Mono",
       "fallback": "monospace",
       "variable": "$font-mono",
       "source": "Google Fonts or npm @fontsource/ibm-plex-mono",
-      "usage": "Default body font. Resource titles, code, metadata, content text, form inputs."
+      "role": "System/UI accent font",
+      "usage": "Applied explicitly to UI system elements only: page indices (/001), page tags, navigation links, buttons, section labels, card IDs, step indices, step titles, metadata, CTAs, form inputs. Creates typographic contrast against Diatype's editorial voice."
     }
   },
+  "contextRule": {
+    "appShell": "The global body element sets font-family: IBM Plex Mono. This governs the home page shell, nav bar, and any element that doesn't explicitly override it.",
+    "contentPages": "Sector pages set font-family: Diatype on their root .page container. This flips the base to Diatype for all content. IBM Plex Mono is then re-applied explicitly to accent/system elements within that context.",
+    "mentalModel": "IBM Plex Mono = system/machine voice (navigation, codes, IDs, buttons, labels). Diatype = human/editorial voice (body text, headings, prose). The shell speaks in system voice. Content experiences speak in human voice."
+  },
   "scale": {
-    "heroDisplay": {
+    "heroDisplayShell": {
       "size": "clamp(120px, 20vw, 280px)",
       "weight": 700,
       "lineHeight": 0.85,
       "letterSpacing": "-0.02em",
       "font": "Diatype",
-      "usage": "Hero title / page display type only."
+      "usage": "Home page hero display title only."
+    },
+    "heroDisplaySector": {
+      "size": "clamp(44px, 5vw, 92px)",
+      "weight": 700,
+      "font": "Diatype",
+      "usage": "Sector page hero title. white-space: pre-line for multi-line breaks."
     },
     "sectionTitle": {
-      "size": "clamp(48px, 4vw, 100px)",
+      "size": "clamp(28px, 3.4vw, 44px)",
+      "weight": 700,
+      "lineHeight": 1.1,
+      "font": "Diatype",
+      "usage": "Section headings within content pages."
+    },
+    "ctaTitle": {
+      "size": "clamp(26px, 3.4vw, 40px)",
+      "lineHeight": 1.1,
+      "font": "Diatype",
+      "usage": "CTA band titles."
+    },
+    "bodyText": {
+      "size": "14–15px",
+      "lineHeight": 1.6,
+      "weight": 300,
+      "font": "Diatype",
+      "color": "$subtitle (#7D5658) for secondary body, $dark-brown for primary",
+      "usage": "Hero subtitles, section descriptions, card body text, FAQ answers, list descriptions."
+    },
+    "cardTitle": {
+      "size": "15px",
+      "weight": 700,
+      "font": "Diatype",
+      "textTransform": "lowercase",
+      "usage": "Card titles in content grids. Note: lowercase, not uppercase — intentional."
+    },
+    "faqQuestion": {
+      "size": "14px",
       "weight": 600,
       "font": "Diatype",
-      "usage": "Major section headings."
+      "textTransform": "lowercase",
+      "usage": "FAQ accordion question text. Also lowercase."
     },
-    "label": {
-      "size": "clamp(14px, 1.7vw, 20px)",
-      "weight": 600,
+    "monoPageIndex": {
+      "size": "11px",
+      "weight": 700,
+      "font": "IBM Plex Mono",
+      "letterSpacing": "0.2em",
       "textTransform": "uppercase",
-      "font": "Diatype"
+      "usage": "Page numbers (001, 002...). Always Mono."
     },
-    "navUI": {
+    "monoTag": {
+      "size": "11px",
+      "weight": 700,
+      "font": "IBM Plex Mono",
+      "letterSpacing": "0.1em",
+      "textTransform": "uppercase",
+      "usage": "Page tags (DEFENSE AI INTEGRATION etc.). Always Mono."
+    },
+    "monoSectionLabel": {
+      "size": "16px",
+      "weight": 700,
+      "font": "IBM Plex Mono",
+      "textTransform": "uppercase",
+      "usage": "Section meta labels (Consulting, Why us, Services...). Always Mono."
+    },
+    "monoCardId": {
+      "size": "12px",
+      "weight": 700,
+      "font": "IBM Plex Mono",
+      "letterSpacing": "0.05em",
+      "textTransform": "uppercase",
+      "usage": "Card IDs (/001, /002...). Always Mono."
+    },
+    "monoStepLabel": {
+      "size": "12px",
+      "weight": 600,
+      "font": "IBM Plex Mono",
+      "letterSpacing": "0.1em",
+      "textTransform": "uppercase",
+      "usage": "Methodology step indices and titles. Always Mono."
+    },
+    "monoButton": {
+      "size": "11–14px",
+      "weight": 600,
+      "font": "IBM Plex Mono",
+      "textTransform": "uppercase",
+      "usage": "All buttons (primary CTA, CTA band button, nav chips). Always Mono."
+    },
+    "monoNavUI": {
       "size": "11px",
       "weight": 600,
-      "textTransform": "uppercase",
-      "font": "Diatype",
-      "usage": "All navigation links, chip labels, button text."
-    },
-    "bodyMono": {
-      "size": "12px",
       "font": "IBM Plex Mono",
-      "usage": "Body content, resource card titles, metadata."
+      "textTransform": "uppercase",
+      "usage": "Navigation links, explore label, shell nav elements. Always Mono."
     },
-    "captionMono": {
+    "monoFormInput": {
       "size": "9px",
       "font": "IBM Plex Mono",
-      "usage": "Form inputs, small labels."
+      "usage": "Contact form inputs and field labels."
     },
-    "microLabel": {
+    "monoMicroLabel": {
       "size": "7px",
       "weight": 700,
       "letterSpacing": "0.09em",
       "textTransform": "uppercase",
       "font": "IBM Plex Mono",
-      "usage": "Form field labels, micro UI labels."
+      "usage": "Micro form field labels."
     }
   },
   "conventions": {
-    "allUIText": "uppercase",
-    "bodyText": "normal case",
+    "diatypeCase": "Normal/sentence case or all-lowercase. Diatype elements are NEVER uppercase (with the exception of all-caps hero titles on the home page).",
+    "monoCase": "Always uppercase. Every IBM Plex Mono element uses text-transform: uppercase — no exceptions.",
     "antialiasing": "-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale",
-    "defaultBody": "IBM Plex Mono is the body/default font on the html element. Diatype is used for specific UI elements."
+    "cardBodyIndent": "text-indent: 30px on card body paragraphs — a deliberate typographic detail to preserve.",
+    "sectorPageSetup": "Set font-family: $font-primary on the .page root. Then apply $font-mono explicitly to each accent/system element."
   }
 }
