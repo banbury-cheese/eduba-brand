@@ -1,0 +1,79 @@
+{
+  "colors": {
+    "darkBrown": {
+      "value": "#5D3136",
+      "usage": "Primary brand color. Main text, headings, borders, nav backgrounds, interactive element backgrounds. The dominant color of the brand."
+    },
+    "cream": {
+      "value": "#EAD5D6",
+      "usage": "Secondary accent. Borders, chip backgrounds on hover, subtle dividers."
+    },
+    "white": {
+      "value": "#FEFBF6",
+      "usage": "Primary content background. Text on dark surfaces. Slightly warm white — never pure #FFFFFF."
+    },
+    "textDark": {
+      "value": "#4A2C2A",
+      "usage": "Default body text color on light backgrounds."
+    },
+    "skin": {
+      "value": "#F9ECDF",
+      "usage": "Warm background for sections, cards, and inner container fills."
+    },
+    "lightBrown": {
+      "value": "#A2777A",
+      "usage": "Secondary text, labels, meta information, muted UI elements."
+    },
+    "lightPink": {
+      "value": "#D8BFC0",
+      "usage": "Card borders, chip resting background, subtle interactive states."
+    },
+    "subtitle": {
+      "value": "#7D5658",
+      "usage": "Secondary heading text on light backgrounds."
+    },
+    "brownGradient": {
+      "value": "linear-gradient(358deg, #492526 1.79%, #5D4143 97.65%)",
+      "usage": "SVG fills for display title text, hero section gradients."
+    }
+  },
+  "themeTokens": {
+    "note": "Used for card/section themes. Each theme must define background, title, dots, and border.",
+    "rose": {
+      "background": "#D8BFC1",
+      "title": "#5D3136",
+      "dots": "rgba(254, 251, 246, 0.9)",
+      "border": "rgba(66, 29, 36, 0.22)"
+    },
+    "mediumBrown": {
+      "background": "#7B5A5C",
+      "title": "#FEFBF6",
+      "dots": "rgba(254, 251, 246, 0.9)",
+      "border": "rgba(254, 251, 246, 0.24)"
+    },
+    "pureWhite": {
+      "background": "#FFFFFF",
+      "title": "#5D3136",
+      "dots": "rgba(93, 49, 54, 0.32)",
+      "border": "rgba(93, 49, 54, 0.18)"
+    },
+    "skin": {
+      "background": "#F9ECDF",
+      "title": "#5D3136",
+      "dots": "rgba(66, 29, 36, 0.35)",
+      "border": "rgba(66, 29, 36, 0.2)"
+    },
+    "darkWine": {
+      "background": "#5D3136",
+      "title": "#FEFBF6",
+      "dots": "rgba(254, 251, 246, 0.9)",
+      "border": "rgba(254, 251, 246, 0.22)"
+    }
+  },
+  "accents": {
+    "greenDot": "#25CA58",
+    "successGreen": "#1A9C43",
+    "grainOpacity": 0.055,
+    "backdropBlur": "7px"
+  }
+}

@@ -1,0 +1,12 @@
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    Corner arrow accent — decorative triangular corner element.
+    Used at the edges of cards and sections.
+
+    Default fill: #D8BFC0 ($light-pink)
+    Flip horizontally with transform="scale(-1,1) translate(-30,0)" for mirrored variant.
+
+    Size is variable — set width/height in CSS. The viewBox stays 30×30.
+  -->
+  <path d="M30 0L30 30L0 30L30 0Z" fill="#D8BFC0"/>
+</svg>

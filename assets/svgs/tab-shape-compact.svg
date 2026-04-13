@@ -1,0 +1,16 @@
+<svg width="103" height="46" viewBox="0 0 103 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    Compact tab shape — used for mobile navigation tabs (NavArrow).
+    103×46 viewBox. Same angled diagonal cut at top-right as wide variant.
+
+    At 103px wide × 46px tall the viewBox fills exactly — no aspect ratio distortion.
+    This is the mobile replacement for tab-shape-wide.svg.
+
+    Fill: currentColor or specific hex.
+    Always black (#000000) when used as a NavArrow back/forward button.
+  -->
+  <path
+    d="M0 7V45.5H103L70.6008 2.77064C69.2774 1.02527 67.2133 0 65.023 0H7C3.13401 0 0 3.13401 0 7Z"
+    fill="currentColor"
+  />
+</svg>

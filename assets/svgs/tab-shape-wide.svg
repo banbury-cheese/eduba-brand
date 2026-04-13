@@ -1,0 +1,19 @@
+<svg width="344" height="46" viewBox="0 0 344 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    Wide tab shape — used for navigation/card label tabs on desktop.
+    344×46 viewBox. Angled diagonal cut at top-right corner.
+
+    IMPORTANT: When constraining width below 344px, add preserveAspectRatio="none"
+    to the <svg> element so it stretches to fill the container height (46px) correctly.
+    Without it, the SVG scales proportionally and the visible height shrinks.
+
+    Fill: use fill="var(--work-bg)" or fill="currentColor" to inherit theme color.
+
+    Usage: card labels, back/forward navigation tabs on desktop.
+    Mobile: swap for tab-shape-compact.svg (103×46).
+  -->
+  <path
+    d="M0 7V45.5H344L311.601 2.77064C310.277 1.02527 308.213 0 306.023 0H7C3.13401 0 0 3.13401 0 7Z"
+    fill="currentColor"
+  />
+</svg>

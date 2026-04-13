@@ -1,0 +1,89 @@
+@use "variables" as *;
+
+// ─────────────────────────────────────────────────────────────
+// EDUBA BRAND — GLOBAL BASE STYLES
+// ─────────────────────────────────────────────────────────────
+
+// ── Font Faces ────────────────────────────────────────────────
+// Diatype — self-hosted. Files in /fonts/
+@font-face {
+  font-family: "Diatype";
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/diatype-bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Diatype";
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/diatype-med.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Diatype";
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts/diatype-reg.woff2) format("woff2");
+}
+
+// IBM Plex Mono — load from Google Fonts or @fontsource/ibm-plex-mono
+// @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+// ── Reset ─────────────────────────────────────────────────────
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden; // App-shell layout — no page scroll
+}
+
+body {
+  font-family: $font-mono;       // IBM Plex Mono is the default body font
+  background-color: $dark-brown; // Frame/viewport background
+  color: $text-dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  isolation: isolate;            // Establishes stacking context for mix-blend-mode
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// ── Film Grain ────────────────────────────────────────────────
+// Applied to the <canvas> rendered by FilmGrain component.
+// The canvas is fixed, covers the full viewport, pointer-events none.
+.filmGrain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.055;
+  mix-blend-mode: soft-light;
+  z-index: 9999;
+}

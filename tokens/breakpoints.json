@@ -1,0 +1,25 @@
+{
+  "breakpoints": {
+    "small": "380px",
+    "phone": "425px",
+    "tablet": "800px",
+    "desktop": "1366px",
+    "lgDesktop": "1920px"
+  },
+  "library": "include-media (SCSS mixin)",
+  "syntax": "@include media('<=tablet') { }  @include media('>=desktop') { }",
+  "mobileFirst": false,
+  "note": "This project uses desktop-first approach with max-width breakpoints being most common. `<=tablet` at 800px is the primary mobile breakpoint.",
+  "commonPatterns": {
+    "tabletAndBelow": "@include media('<=tablet')",
+    "phoneAndBelow": "@include media('<=phone')",
+    "desktopAndAbove": "@include media('>=desktop')"
+  },
+  "responsiveConventions": [
+    "Desktop sizes set at component level, tablet/phone override inside @include media blocks.",
+    "Font sizes often use clamp() for fluid scaling between breakpoints.",
+    "Navigation collapses from text labels to icon-only at tablet.",
+    "Grid columns reduce: 5 → 3 → 2 from desktop to phone.",
+    "Safe area insets used for mobile: env(safe-area-inset-*)."
+  ]
+}

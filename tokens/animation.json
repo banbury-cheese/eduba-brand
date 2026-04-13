@@ -1,0 +1,145 @@
+{
+  "library": "GSAP 3 (gsap package). ScrambleTextPlugin for text reveals.",
+  "cssTransitions": {
+    "fast": "0.2s ease",
+    "medium": "0.3s ease",
+    "elastic": "0.22s cubic-bezier(0.34, 1.56, 0.64, 1)",
+    "elasticSlow": "0.42s cubic-bezier(0.34, 1.48, 0.64, 1)"
+  },
+  "gsapPatterns": {
+    "textColorChange": {
+      "duration": 0.2,
+      "ease": "power2.out"
+    },
+    "scrambleText": {
+      "duration": 0.8,
+      "chars": "upperCase",
+      "speed": 0.8,
+      "note": "Use GSAP ScrambleTextPlugin. Kills existing tweens before starting. Store original in dataset.originalLabel."
+    },
+    "chipBackground": {
+      "duration": 0.18,
+      "ease": "power2.out",
+      "scaleX": 1.04,
+      "note": "Chip bg element scales horizontally slightly on hover."
+    },
+    "logoSpring": {
+      "scale": 1.05,
+      "duration": 0.22,
+      "ease": "back.out(2)",
+      "transformOrigin": "50% 50%"
+    },
+    "logoNodeTranslate": {
+      "x": 2,
+      "duration": 0.28,
+      "ease": "back.out(1.5)"
+    },
+    "dotsScale": {
+      "scale": 1.55,
+      "transformOrigin": "50% 50%",
+      "duration": 0.12,
+      "stagger": 0.024,
+      "ease": "power2.out",
+      "yoyo": true,
+      "repeat": 1,
+      "note": "Applied to [data-dot] SVG path elements. Do NOT set transform-box or transform-origin in CSS — let GSAP handle it exclusively."
+    },
+    "dotsReset": {
+      "scale": 1,
+      "transformOrigin": "50% 50%",
+      "duration": 0.18,
+      "stagger": 0.01,
+      "ease": "power2.inOut"
+    },
+    "contactFormOpen": {
+      "arrowRotate": 180,
+      "arrowDuration": 0.38,
+      "arrowEase": "power2.inOut",
+      "blurTarget": "blur(7px)",
+      "blurDuration": 0.45,
+      "blurEase": "power2.out",
+      "fieldStagger": 0.055,
+      "fieldDelay": 90,
+      "fieldFrom": { "opacity": 0, "y": 7 },
+      "fieldTo": { "opacity": 1, "y": 0, "duration": 0.26, "ease": "power2.out" }
+    },
+    "contactFormClose": {
+      "arrowRotate": 0,
+      "arrowDuration": 0.32,
+      "blurTarget": "blur(0px)",
+      "blurDuration": 0.32
+    },
+    "panelExpand": {
+      "technique": "CSS grid-template-rows: 0fr → 1fr",
+      "transition": "grid-template-rows 0.52s cubic-bezier(0.16, 1, 0.3, 1)",
+      "note": "Preferred over max-height for arbitrary content height expansion."
+    }
+  },
+  "hoverIconPatterns": {
+    "navArrow": {
+      "property": "translateX(var(--arrow-hover-x, -3px))",
+      "transition": "0.22s cubic-bezier(0.34, 1.56, 0.64, 1)",
+      "note": "CSS custom property --arrow-hover-x set to 3px (forward) or -3px (back)."
+    },
+    "resourceCardIcons": {
+      "scribe": {
+        "nodeTopLeft": "translate(-2.5px, -3px)",
+        "nodeBottomLeft": "translate(-2.5px, 3px)",
+        "nodeRight": "translate(2px, 0)"
+      },
+      "studyArcade": {
+        "nodeTl": "translate(-2.5px, -2.5px)",
+        "nodeTr": "translate(2.5px, -2.5px)",
+        "nodeBl": "translate(-2.5px, 2.5px)",
+        "nodeBr": "translate(2.5px, 2.5px)"
+      },
+      "voxMeet": {
+        "barTallTop": "translateY(-5px)",
+        "barTallBottom": "translateY(3px) — delay 0.03s",
+        "barMidTop": "translateY(-3.5px) — delay 0.07s",
+        "barMidBottom": "translateY(2.5px) — delay 0.1s",
+        "barSmall": "translateY(2px) — delay 0.14s"
+      },
+      "cliefNotes": {
+        "nodeTop": "translate(2.5px, -2px)",
+        "nodeCenter": "translate(1px, 1.5px) — delay 0.05s",
+        "nodeLeft": "translate(-2px, 1px) — delay 0.1s"
+      },
+      "substack": {
+        "nodeTl": "translate(-2.5px, -2.5px)",
+        "nodeTr": "translate(2.5px, -2.5px)",
+        "nodeBl": "translate(-2.5px, 2.5px)",
+        "nodeBr": "translate(2.5px, 2.5px)",
+        "nodeCenter": "scale(1.22) — delay 0.02s — ease cubic-bezier(0.34, 1.8, 0.64, 1)"
+      }
+    },
+    "shared": {
+      "transformBox": "fill-box",
+      "transformOrigin": "center",
+      "transition": "transform 0.42s cubic-bezier(0.34, 1.48, 0.64, 1)"
+    }
+  },
+  "keyframes": {
+    "dotBlink": {
+      "description": "Pulsing green dot on primary CTA email button",
+      "animation": "dotBlink 2s ease-in-out infinite",
+      "css": "@keyframes dotBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.15; } }"
+    }
+  },
+  "filmGrain": {
+    "frameRate": 15,
+    "targetPixelCount": 2000000,
+    "opacity": 0.055,
+    "mixBlendMode": "soft-light",
+    "zIndex": 9999,
+    "respectsReducedMotion": true,
+    "implementation": "Canvas-based animated noise. Grayscale random pixels. Scales down resolution to hit TARGET_PIXEL_COUNT, stretched with CSS width/height 100%."
+  },
+  "principles": [
+    "Always kill existing tweens (gsap.killTweensOf) before starting a new animation on the same target.",
+    "Never set transform-box or transform-origin in CSS for elements GSAP animates with transformOrigin. Let GSAP handle it.",
+    "Use will-change: transform on elements that animate frequently.",
+    "Use back.out() for spring/overshoot feels. power2.out for smooth settle. power2.inOut for symmetric transitions.",
+    "Stagger animations read left-to-right or top-to-bottom, 0.02–0.05s between items."
+  ]
+}

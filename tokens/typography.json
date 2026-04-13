@@ -1,0 +1,80 @@
+{
+  "fonts": {
+    "primary": {
+      "family": "Diatype",
+      "fallback": "sans-serif",
+      "variable": "$font-primary",
+      "files": {
+        "bold": "fonts/diatype-bold.woff2",
+        "medium": "fonts/diatype-med.woff2",
+        "regular": "fonts/diatype-reg.woff2"
+      },
+      "weights": {
+        "bold": 700,
+        "medium": 500,
+        "regular": 300
+      },
+      "usage": "All UI labels, navigation, headings, brand text, buttons, form elements."
+    },
+    "mono": {
+      "family": "IBM Plex Mono",
+      "fallback": "monospace",
+      "variable": "$font-mono",
+      "source": "Google Fonts or npm @fontsource/ibm-plex-mono",
+      "usage": "Default body font. Resource titles, code, metadata, content text, form inputs."
+    }
+  },
+  "scale": {
+    "heroDisplay": {
+      "size": "clamp(120px, 20vw, 280px)",
+      "weight": 700,
+      "lineHeight": 0.85,
+      "letterSpacing": "-0.02em",
+      "font": "Diatype",
+      "usage": "Hero title / page display type only."
+    },
+    "sectionTitle": {
+      "size": "clamp(48px, 4vw, 100px)",
+      "weight": 600,
+      "font": "Diatype",
+      "usage": "Major section headings."
+    },
+    "label": {
+      "size": "clamp(14px, 1.7vw, 20px)",
+      "weight": 600,
+      "textTransform": "uppercase",
+      "font": "Diatype"
+    },
+    "navUI": {
+      "size": "11px",
+      "weight": 600,
+      "textTransform": "uppercase",
+      "font": "Diatype",
+      "usage": "All navigation links, chip labels, button text."
+    },
+    "bodyMono": {
+      "size": "12px",
+      "font": "IBM Plex Mono",
+      "usage": "Body content, resource card titles, metadata."
+    },
+    "captionMono": {
+      "size": "9px",
+      "font": "IBM Plex Mono",
+      "usage": "Form inputs, small labels."
+    },
+    "microLabel": {
+      "size": "7px",
+      "weight": 700,
+      "letterSpacing": "0.09em",
+      "textTransform": "uppercase",
+      "font": "IBM Plex Mono",
+      "usage": "Form field labels, micro UI labels."
+    }
+  },
+  "conventions": {
+    "allUIText": "uppercase",
+    "bodyText": "normal case",
+    "antialiasing": "-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale",
+    "defaultBody": "IBM Plex Mono is the body/default font on the html element. Diatype is used for specific UI elements."
+  }
+}
