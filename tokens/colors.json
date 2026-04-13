@@ -10,7 +10,7 @@
     },
     "white": {
       "value": "#FEFBF6",
-      "usage": "Primary content background. Text on dark surfaces. Slightly warm white — never pure #FFFFFF."
+      "usage": "Primary default content background. Text on dark surfaces. Slightly warm white."
     },
     "textDark": {
       "value": "#4A2C2A",
@@ -51,11 +51,12 @@
       "dots": "rgba(254, 251, 246, 0.9)",
       "border": "rgba(254, 251, 246, 0.24)"
     },
-    "pureWhite": {
+    "paper": {
       "background": "#FFFFFF",
       "title": "#5D3136",
       "dots": "rgba(93, 49, 54, 0.32)",
-      "border": "rgba(93, 49, 54, 0.18)"
+      "border": "rgba(93, 49, 54, 0.18)",
+      "usage": "Flat paper-like surface. Use only when a cleaner, sharper contrast than the warm default is intentionally needed."
     },
     "skin": {
       "background": "#F9ECDF",

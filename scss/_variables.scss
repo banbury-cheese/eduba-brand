@@ -11,7 +11,7 @@ $skin:            #f9ecdf;   // Warm card/section background
 $text-dark:       #4a2c2a;   // Body text on light
 $brown:           #5d3136;   // Alias for dark-brown
 $light-brown:     #a2777a;   // Muted text, labels
-$white:           #fefbf6;   // Warm white — NEVER use pure #ffffff for brand text bg
+$white:           #fefbf6;   // Warm white — default brand light surface
 $light-pink:      #d8bfc0;   // Card borders, chip resting state
 $subtitle:        #7d5658;   // Secondary headings on light bg
 
@@ -19,8 +19,8 @@ $subtitle:        #7d5658;   // Secondary headings on light bg
 $brown-gradient:  linear-gradient(358deg, #492526 1.79%, #5d4143 97.65%);
 
 // ── Typography ────────────────────────────────────────────────
-$font-mono:     'IBM Plex Mono', monospace;  // Body / default
-$font-primary:  'Diatype', sans-serif;       // UI labels, headings, nav
+$font-mono:     'IBM Plex Mono', monospace;  // System/UI accent font. Often used on the shell/body.
+$font-primary:  'Diatype', sans-serif;       // Editorial/content font. Use for body copy and headings.
 
 // ── Spacing ───────────────────────────────────────────────────
 $frame-padding:   12px;

@@ -1,5 +1,5 @@
 # Eduba Brand System
-> **For AI agents:** This document is the single source of truth for the Eduba visual identity and design language. Read it fully before building any Eduba product. Implement values literally — use the exact hex codes, font names, pixel values, and easing functions listed here. Do not substitute, approximate, or "improve."
+> **For AI agents:** Start with `AGENT_BRIEF.md`. Use this file as the deep reference and rationale. If this document conflicts with token files or the brief, prefer the token files first, then `AGENT_BRIEF.md`.
 
 ---
 
@@ -23,7 +23,7 @@ Use these exact values. No substitutions.
 | Token | Hex | Usage |
 |---|---|---|
 | `$dark-brown` | `#5D3136` | Primary. Nav backgrounds, headings, borders, interactive elements, frame background. |
-| `$white` | `#FEFBF6` | Warm white. Content area background, text on dark. NEVER use `#FFFFFF` for brand surfaces. |
+| `$white` | `#FEFBF6` | Warm white. Default light surface, content area background, text on dark. |
 | `$cream` | `#EAD5D6` | Secondary accent. Borders on hover, chip backgrounds, subtle dividers. |
 | `$skin` | `#F9ECDF` | Warm card/section fill. Inner container backgrounds. |
 | `$text-dark` | `#4A2C2A` | Body text on light surfaces. |
@@ -41,7 +41,7 @@ Five named themes used for content cards and service sections:
 |---|---|---|
 | rose | `#D8BFC1` | `#5D3136` |
 | mediumBrown | `#7B5A5C` | `#FEFBF6` |
-| pureWhite | `#FFFFFF` | `#5D3136` |
+| paper | `#FFFFFF` | `#5D3136` |
 | skin | `#F9ECDF` | `#5D3136` |
 | darkWine | `#5D3136` | `#FEFBF6` |
 
@@ -123,7 +123,7 @@ Five named themes used for content cards and service sections:
 
 ## 4. Layout
 
-**Approach:** Fixed app-shell. No page scroll on html/body. Content scrolls inside a container.
+**Approach:** Preferred flagship/public-facing shell. Use a fixed app-shell when the experience should feel authored, framed, and editorial. Do not force this pattern onto dense internal tools by default.
 
 ```scss
 html, body {
@@ -199,7 +199,7 @@ Primary mobile breakpoint: `<=tablet` (800px). Uses `include-media` SCSS library
 
 ## 7. Film Grain
 
-Every Eduba app has animated film grain. Non-negotiable.
+Film grain is the default for flagship/public-facing Eduba experiences. It is optional for dense utility products, internal tooling, or screens where constant texture would reduce clarity.
 
 **Implementation:** Canvas-based animated noise overlay. Renders grayscale random pixels at 15 FPS, scales canvas resolution down to ~2M pixels for performance, stretches with CSS.
 
@@ -244,7 +244,7 @@ gsap.to(node, { x: 0, duration: 0.3, ease: "power2.out" });
 
 ### Top nav
 - Logo (icon + "THE FACES OF INTERFACE" text)
-- Nav links: `11px`, Diatype, `font-weight: 600`, `text-transform: uppercase`
+- Nav links: `11px`, IBM Plex Mono, `font-weight: 600`, `text-transform: uppercase`
 - Chips (nav buttons): `height: 28px`, `border-radius: 4px`, `padding: 3px 12px`
 - Chip background element scales `scaleX: 1.04` on hover with `duration: 0.18, ease: power2.out`
 - Text scrambles on hover using GSAP ScrambleTextPlugin (`chars: "upperCase"`)
@@ -456,7 +456,8 @@ When building Eduba apps, prefer this stack. SCSS modules with `@use` imports. `
 
 ```
 Primary color:    #5D3136
-White:            #FEFBF6  (not #FFFFFF)
+White:            #FEFBF6  (default light surface)
+Paper:            #FFFFFF  (exception surface, use sparingly)
 Skin:             #F9ECDF
 Cream:            #EAD5D6
 Accent:           #D8BFC0

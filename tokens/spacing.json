@@ -1,8 +1,9 @@
 {
   "base": {
-    "framePadding": "12px",
+    "framePadding": "8px",
     "contentPadding": "40px",
-    "sectionGap": "60px"
+    "sectionGap": "60px",
+    "baseUnit": "4px"
   },
   "borderRadius": {
     "sm": "4px",
@@ -16,7 +17,7 @@
     "contentBorderRadius": "4px",
     "gridSystem": "CSS Grid grid-template-rows: auto 1fr auto",
     "height": "100svh — uses small viewport height for mobile browser chrome",
-    "overflow": "hidden on html/body — app-shell layout, no page scroll"
+    "overflow": "hidden on html/body — preferred for framed app-shell layouts, not mandatory for every Eduba product"
   },
   "nav": {
     "topNavPaddingDesktop": "0px 2px 7px 3px",

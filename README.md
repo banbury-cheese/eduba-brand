@@ -1,18 +1,31 @@
 # eduba-brand
 
-Single source of truth for the Eduba visual identity, design tokens, voice, and component patterns. Pass this repo to any agent building an Eduba product.
+Reference bundle for the Eduba visual identity, design tokens, voice, and component patterns. Pass this repo to any agent building an Eduba product.
 
 ## How to use with an AI agent
 
-Point the agent at `BRAND.md` first. It contains everything needed to make correct decisions without reading all files.
+Point the agent at `AGENT_BRIEF.md` first. It is the shortest reliable entry point.
 
 ```
-Read BRAND.md before writing any code for this project.
-It contains exact hex values, font names, animation easings,
-layout patterns, and copy principles for the Eduba brand.
+Read AGENT_BRIEF.md before writing any code for this project.
+If needed, then read PRODUCT_UI.md, voice/PRODUCT_VOICE.md,
+and the token files. Use BRAND.md as deep reference, not as
+the only file you blindly follow.
 ```
 
-For voice and copy work, also read `voice/VOICE.md`.
+For marketing/editorial voice, also read `voice/VOICE.md`.
+For product/UI copy, read `voice/PRODUCT_VOICE.md`.
+
+### Precedence
+
+If files disagree, use this order:
+
+1. `tokens/*.json` and `animations/animations.ts`
+2. `AGENT_BRIEF.md`
+3. `PRODUCT_UI.md`
+4. `voice/PRODUCT_VOICE.md`
+5. `voice/VOICE.md`
+6. `BRAND.md`
 
 ---
 
@@ -20,13 +33,16 @@ For voice and copy work, also read `voice/VOICE.md`.
 
 ```
 eduba-brand/
-├── BRAND.md                  ← Start here. Primary AI-optimized brand document.
+├── AGENT_BRIEF.md            ← Start here. Fast agent-safe brief.
+├── PRODUCT_UI.md             ← UI patterns, motifs, layout guidance.
+├── BRAND.md                  ← Deep reference and rationale.
 ├── tokens/
 │   ├── colors.json           ← All colors with usage notes
 │   ├── typography.json       ← Fonts, scale, conventions
 │   ├── spacing.json          ← Spacing, layout, border radius
-│   ├── animation.json        ← GSAP patterns, CSS transitions, film grain
 │   └── breakpoints.json      ← Responsive breakpoints and usage
+├── animations/
+│   └── animations.ts         ← GSAP patterns, hover/toggle helpers, motion rules
 ├── fonts/
 │   ├── diatype-bold.woff2    ← Diatype 700
 │   ├── diatype-med.woff2     ← Diatype 500
@@ -42,7 +58,8 @@ eduba-brand/
 │       ├── arrow-corner.svg      ← Decorative corner accent
 │       └── dots-grid.svg         ← Animated dots icon (16 data-dot paths)
 ├── voice/
-│   └── VOICE.md              ← Writing system, hooks, pillars, non-negotiables
+│   ├── PRODUCT_VOICE.md      ← In-app/product copy guidance
+│   └── VOICE.md              ← Marketing/editorial voice system
 └── components/
     └── FilmGrain.tsx         ← React/Next.js film grain component
 ```
@@ -67,6 +84,8 @@ Or via npm: `npm install @fontsource/ibm-plex-mono`
 2. Add the `.filmGrain` CSS class from `scss/globals.scss`
 3. Add `isolation: isolate` to your `body` element
 4. Render `<FilmGrain />` as the last child of your layout root
+
+Use grain by default for public-facing/flagship Eduba experiences. For dense internal tools or productivity-heavy screens, treat it as optional.
 
 ---
 

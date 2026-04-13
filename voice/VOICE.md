@@ -1,6 +1,8 @@
-# Eduba — Voice & Writing System
+# Eduba — Voice & Writing System (Marketing & Editorial)
 
 > Internal playbook, 2026. Every piece of content deposits value. Nothing screams. Everything teaches.
+>
+> Use this file for marketing, editorial, social, founder voice, and public-facing narrative. For in-app microcopy, product UI text, empty states, errors, and button labels, use `voice/PRODUCT_VOICE.md`.
 
 ---
 

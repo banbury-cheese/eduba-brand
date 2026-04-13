@@ -44,7 +44,7 @@ body {
 }
 
 body {
-  font-family: $font-mono;       // IBM Plex Mono is the default body font
+  font-family: $font-mono;       // Shell/body default. Content experiences can override to $font-primary at the page root.
   background-color: $dark-brown; // Frame/viewport background
   color: $text-dark;
   -webkit-font-smoothing: antialiased;
