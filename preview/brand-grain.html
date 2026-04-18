@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html><head><link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+body{margin:0;background:#5d3136;font-family:'IBM Plex Mono',monospace;color:#EAD5D6;padding:20px;position:relative;overflow:hidden;isolation:isolate}
+.filmGrain{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;opacity:0.055;mix-blend-mode:soft-light;z-index:9999}
+.wordmark{width:100%}
+.wordmark img{width:100%;display:block}
+.cap{position:relative;font-size:8px;letter-spacing:.12em;text-transform:uppercase;opacity:.7;margin-top:10px}
+</style></head><body>
+<div class="wordmark"><img src="../assets/wordmark.svg"/></div>
+<div class="cap">Film grain · canvas-based · 15 FPS · soft-light · opacity 0.055 · respects prefers-reduced-motion</div>
+<canvas class="filmGrain" aria-hidden="true" id="grain"></canvas>
+<script>
+(function(){
+  var canvas = document.getElementById('grain');
+  var ctx = canvas.getContext('2d', {alpha:true, desynchronized:true});
+  var imageData, raf, lastTime = 0;
+  var FPS = 15, frameDur = 1000/FPS;
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function render() {
+    if (!imageData) return;
+    var px = imageData.data;
+    for (var i = 0; i < px.length; i += 4) {
+      var g = (Math.random() * 255) | 0;
+      px[i] = px[i+1] = px[i+2] = g; px[i+3] = 255;
+    }
+    ctx.putImageData(imageData, 0, 0);
+  }
+  function resize() {
+    var scale = Math.max(1, Math.sqrt(innerWidth * innerHeight / 2000000));
+    canvas.width = Math.ceil(innerWidth / scale);
+    canvas.height = Math.ceil(innerHeight / scale);
+    imageData = ctx.createImageData(canvas.width, canvas.height);
+    render();
+  }
+  function loop(t) {
+    if (mq.matches) return;
+    raf = requestAnimationFrame(loop);
+    if (t - lastTime < frameDur) return;
+    lastTime = t; render();
+  }
+  function start() { cancelAnimationFrame(raf); lastTime = 0; if (!mq.matches) raf = requestAnimationFrame(loop); }
+  resize(); start();
+  window.addEventListener('resize', function(){ resize(); start(); });
+  mq.addEventListener('change', start);
+})();
+</script>
+</body></html>

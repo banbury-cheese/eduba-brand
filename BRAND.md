@@ -478,3 +478,55 @@ Spring ease:      back.out(2)
 Panel ease:       cubic-bezier(0.16, 1, 0.3, 1)
 CSS spring:       cubic-bezier(0.34, 1.56, 0.64, 1)
 ```
+
+---
+
+## 17. Footer Pattern
+
+Four-column grid on dark wine (`#5D3136`) background.
+
+- **Col 1:** `assets/svgs/brand-mark-white.svg` (height 14px) + Diatype 300 14px 70%-opacity description.
+- **Cols 2–4:** Link groups — PRODUCTS, RESEARCH, ELSEWHERE — mono 8px uppercase headers (0.12em spacing) + mono 10px items below.
+- **Bottom strip:** Left: `© EDUBA LTD · EST. 2023 · EDINBURGH, SCOTLAND`. Right: `THE FACES OF INTERFACE`. Both IBM Plex Mono 9px, 70% opacity.
+
+See `ui_kits/eduba-io/Contact.jsx` → `Footer` for reference implementation.
+
+---
+
+## 18. Toast Notification Pattern
+
+Sharp rectangular toast (border-radius 0).
+
+```css
+.toast {
+  background: #5D3136;
+  color: #FEFBF6;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 10px 20px;
+  box-shadow: 0 18px 40px rgba(93, 49, 54, 0.16);
+  border-radius: 0;
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+```
+
+Content: short uppercase mono. Examples: `OPENING SCRIBE…`, `LINK COPIED`, `VOX-MEET IS COMING SOON.`
+In Next.js: `<Toaster position="bottom-center" />` with `toastOptions` overriding the values above.
+
+---
+
+## 19. Motion Duration Tokens
+
+| CSS custom property | Value | GSAP seconds | Use |
+|---|---|---|---|
+| `--eb-dur-hover` | `220ms` | `0.22` | All hover transitions |
+| `--eb-dur-chip` | `180ms` | `0.18` | Nav chip `scaleX 1.04` |
+| `--eb-dur-panel` | `520ms` | `0.52` | Contact form / accordion expand |
+
+Defined in `tokens/tokens.css` and `animations/animations.ts` (`duration` export).

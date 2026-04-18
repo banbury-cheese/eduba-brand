@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html><head><link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+body{margin:0;background:var(--eb-white);font-family:var(--eb-font-mono);padding:20px;color:var(--eb-text-dark);display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.chip{position:relative;display:inline-flex;align-items:center;gap:8px;padding:4px 12px;font-size:11px;font-weight:600;text-transform:uppercase;border-radius:4px}
+.chip.rose{background:#D8BFC0;color:#5d3136}
+.chip.dark{background:#000;color:#FEFBF6;border-radius:4px}
+.chip.dark .dot{width:5px;height:5px;background:#25ca58;border-radius:50%}
+.chip.text{background:transparent;color:#EAD5D6;padding:4px 0}
+.lbl{display:block;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#A2777A;font-weight:700;margin-bottom:4px}
+.grp{display:flex;flex-direction:column;background:#5d3136;padding:14px;border-radius:2px}
+.grp .lbl{color:#EAD5D6;opacity:.6}
+</style></head><body>
+<div class="grp">
+  <span class="lbl">Nav chips (on dark bg)</span>
+  <div style="display:flex;gap:10px;align-items:center">
+    <span class="chip text">Readings</span>
+    <span class="chip rose">Clief Notes</span>
+    <span class="chip dark"><span class="dot"></span>theceo@eduba.io</span>
+  </div>
+</div>
+</body></html>

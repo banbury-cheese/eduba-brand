@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html><head><link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+body{margin:0;background:var(--eb-white);font-family:var(--eb-font-mono);padding:18px;color:var(--eb-text-dark)}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.card{border:1px solid #D8BFC0;padding:16px 10px;display:flex;flex-direction:column;align-items:center;gap:10px;aspect-ratio:2/1;justify-content:center;text-align:center}
+.card.hover{background:#ead5d678;border-color:#5d3136}
+.card .t{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.card img{max-height:28px;width:auto}
+</style></head><body>
+<div class="grid">
+  <div class="card"><img src="../assets/icons/resource-scribe.svg"/><span class="t">Scribe</span></div>
+  <div class="card"><img src="../assets/icons/resource-study-arcade.svg"/><span class="t">Study-Arcade</span></div>
+  <div class="card hover"><img src="../assets/icons/resource-vox-meet.svg"/><span class="t">Vox-Meet</span></div>
+  <div class="card"><img src="../assets/icons/resource-clief-notes.svg"/><span class="t">Clief-Notes</span></div>
+  <div class="card"><img src="../assets/icons/resource-substack.svg"/><span class="t">Substack</span></div>
+</div>
+</body></html>

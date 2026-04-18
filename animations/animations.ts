@@ -36,6 +36,19 @@ export const ease = {
   cssElastic: "cubic-bezier(0.34, 1.48, 0.64, 1)",
 } as const;
 
+// ─── Duration constants ────────────────────────────────────────────────────
+// Mirror of --eb-dur-* CSS custom properties in tokens/tokens.css.
+// Values in SECONDS (GSAP convention); CSS uses ms equivalents.
+
+export const duration = {
+  /** All hover transitions — CSS: --eb-dur-hover: 220ms */
+  hover: 0.22,
+  /** Nav chip background scale — CSS: --eb-dur-chip: 180ms */
+  chip: 0.18,
+  /** Panel/accordion expand — CSS: --eb-dur-panel: 520ms */
+  panel: 0.52,
+} as const;
+
 // ─── Logo interaction ────────────────────────────────────────────────────────
 // The logo SVG has two paths: [data-logo-body] and [data-logo-node].
 // The standalone node (right circle) nudges outward on hover.

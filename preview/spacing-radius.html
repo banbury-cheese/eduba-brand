@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html><head><link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+body{margin:0;background:var(--eb-white);font-family:var(--eb-font-mono);padding:18px;color:var(--eb-text-dark)}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.cell{text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.demo{background:#5d3136;width:56px;height:56px}
+.lbl{font-size:8px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#A2777A}
+.spec{font-size:9px;opacity:.65}
+</style></head><body>
+<div class="grid">
+  <div class="cell"><div class="demo" style="border-radius:0"></div><span class="lbl">none</span><span class="spec">0</span></div>
+  <div class="cell"><div class="demo" style="border-radius:2px"></div><span class="lbl">xs</span><span class="spec">2 · chips</span></div>
+  <div class="cell"><div class="demo" style="border-radius:4px"></div><span class="lbl">sm · default</span><span class="spec">4</span></div>
+  <div class="cell"><div class="demo" style="border-radius:8px"></div><span class="lbl">md</span><span class="spec">8</span></div>
+  <div class="cell"><div class="demo" style="border-radius:50%"></div><span class="lbl">round</span><span class="spec">live dot only</span></div>
+</div>
+</body></html>

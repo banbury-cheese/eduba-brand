@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html><head><link rel="stylesheet" href="../colors_and_type.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+body{margin:0;background:#FEFBF6;font-family:'IBM Plex Mono',monospace;padding:20px;color:#4A2C2A}
+.lbl{font-size:8px;letter-spacing:.12em;color:#A2777A;font-weight:700;text-transform:uppercase;text-align:center;margin-top:8px}
+.demo{display:flex;flex-direction:column;gap:0;max-width:700px}
+/* Service card hover */
+.card-btn{width:100%;padding:0;border:none;background:transparent;cursor:pointer;display:block;text-align:left;position:relative}
+.card-btn:hover{transform:translateY(-2px);transition:transform .25s ease}
+.card-content{height:0;overflow:hidden;will-change:height}
+.card-inner{padding:14px 28px 60px}
+</style></head><body>
+
+<div class="demo" id="demo">
+  <!-- Cards injected by JS -->
+</div>
+<div class="lbl">Services folder tabs · click to expand · Diatype titles · Mono labels · GSAP height animation</div>
+
+<script>
+const items = [
+  { title:'Learn The Workflow', headline:'We start with what people actually do all day.',
+    desc:'Before training or building anything, we map real workflows. Where time goes. What is tedious.',
+    bg:'#d8bfc1', fg:'#5d3136', dots:'rgba(254,251,246,0.9)' },
+  { title:'Sort The Work', headline:'We decide which layer each problem belongs on.',
+    desc:'Most failed AI projects start by automating the wrong thing. We sort the work into traditional software, rule-based logic, AI, or do not build this.',
+    bg:'#7b5a5c', fg:'#fefbf6', dots:'rgba(254,251,246,0.9)' },
+  { title:'Train People To Build', headline:'Workshops double as discovery and delivery.',
+    desc:'People learn by building something real with their own data.',
+    bg:'#ffffff', fg:'#5d3136', dots:'rgba(93,49,54,0.32)' },
+];
+
+let activeIdx = null;
+const contentEls = [];
+
+const diatype = "'Diatype','Space Grotesk',system-ui,sans-serif";
+const mono = "'IBM Plex Mono',monospace";
+
+const demo = document.getElementById('demo');
+items.forEach((item, i) => {
+  const wrap = document.createElement('div');
+  wrap.style.cssText = `position:relative;margin-top:${i===0?0:-10}px;z-index:${i+1}`;
+
+  // Header SVG + overlay
+  const btn = document.createElement('button');
+  btn.className = 'card-btn';
+  btn.innerHTML = `
+    <svg viewBox="0 0 1483 132" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block" preserveAspectRatio="none">
+      <path d="M547.739 0.5H10.5Q0.5 0.5 0.5 10.5V121Q0.5 131 10.5 131H1472.5Q1482.5 131 1482.5 121V73Q1482.5 63 1472.5 63H601.297Q596.297 63 593.297 59L552.739 5.5Q549.739 1.5 547.739 0.5Z" fill="${item.bg}" stroke="${item.bg}" stroke-linejoin="round" stroke-linecap="round"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M8.5686 39.4314L8.5 39.5V9.5H38.5L38.4314 9.56862C22.4175 10.6115 9.6115 23.4175 8.5686 39.4314Z" fill="${item.fg}"/>
+      <rect x="1458.5" y="74" width="3.75" height="3.75" rx=".5" fill="${item.dots}"/>
+      <rect x="1451.75" y="74" width="3.75" height="3.75" rx=".5" fill="${item.dots}"/>
+      <rect x="1458.5" y="80.75" width="3.75" height="3.75" rx=".5" fill="${item.dots}"/>
+      <rect x="1458.5" y="87.5" width="3.75" height="3.75" rx=".5" fill="${item.dots}"/>
+    </svg>
+    <div style="position:absolute;inset:0;display:flex;align-items:center;padding-left:2%;pointer-events:none;z-index:2">
+      <span style="font-family:${diatype};font-size:clamp(22px,2.5vw,36px);font-weight:600;color:${item.fg};line-height:1.05">${item.title}</span>
+    </div>
+  `;
+
+  const content = document.createElement('div');
+  content.className = 'card-content';
+  content.style.background = item.bg;
+  contentEls.push(content);
+
+  content.innerHTML = `
+    <div class="card-inner">
+      <div style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px">
+        <div>
+          <span style="font-family:${mono};font-size:10px;font-weight:600;letter-spacing:.16em;color:${item.fg};text-transform:uppercase;display:block;margin-bottom:16px">TITLE</span>
+          <div style="border-top:1px dashed ${item.fg};opacity:.4;margin-bottom:16px"></div>
+          <h4 style="font-family:${diatype};font-size:clamp(20px,2.5vw,36px);font-weight:500;color:${item.fg};line-height:1.12;margin:0">${item.headline}</h4>
+        </div>
+        <div>
+          <span style="font-family:${mono};font-size:10px;font-weight:600;letter-spacing:.16em;color:${item.fg};text-transform:uppercase;display:block;margin-bottom:16px">DESCRIPTION</span>
+          <div style="border-top:1px dashed ${item.fg};opacity:.4;margin-bottom:16px"></div>
+          <p style="font-family:${diatype};font-size:clamp(14px,1.6vw,22px);font-weight:400;color:${item.fg};opacity:.72;line-height:1.45;margin:0">${item.desc}</p>
+        </div>
+      </div>
+    </div>
+  `;
+
+  btn.addEventListener('click', () => {
+    const prev = activeIdx;
+    const next = activeIdx === i ? null : i;
+    if (prev !== null && prev !== i) {
+      gsap.to(contentEls[prev], { height:0, duration:.35, ease:'power2.inOut', overwrite:'auto' });
+    }
+    if (next === null) {
+      gsap.to(content, { height:0, duration:.35, ease:'power2.inOut', overwrite:'auto' });
+    } else {
+      const h = content.scrollHeight;
+      gsap.fromTo(content, { height:0 }, { height:h, duration:.45, ease:'power2.out', overwrite:'auto',
+        onComplete: () => gsap.set(content, { height:'auto' }) });
+    }
+    activeIdx = next;
+  });
+
+  wrap.appendChild(btn);
+  wrap.appendChild(content);
+  demo.appendChild(wrap);
+});
+
+// Open first card by default
+(function(){
+  const h = contentEls[0].scrollHeight;
+  gsap.set(contentEls[0], { height: h });
+  setTimeout(() => gsap.set(contentEls[0], { height:'auto' }), 50);
+  activeIdx = 0;
+})();
+</script>
+</body></html>

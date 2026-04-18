@@ -1,0 +1,175 @@
+/* ==========================================================================
+   Eduba Design System — colors_and_type.css
+   Canonical tokens from banbury-cheese/eduba-brand (tokens/*.json + BRAND.md).
+   Order of authority: tokens > AGENT_BRIEF > PRODUCT_UI > BRAND.
+   ========================================================================== */
+
+/* IBM Plex Mono — system / UI accent (always uppercase) */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap');
+
+/* Diatype — primary editorial font. Self-hosted woff2 below.
+   ACTION REQUIRED: Drop the three .woff2 files from the brand repo's
+   /fonts/ directory into this project's /fonts/ directory:
+     - diatype-bold.woff2  (700)
+     - diatype-med.woff2   (500)
+     - diatype-reg.woff2   (300)
+   Space Grotesk is loaded only as a visual fallback while you wait. */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap');
+
+:root {
+  /* ===== Colors ========================================================== */
+  --eb-dark-brown:   #5D3136;
+  --eb-white:        #FEFBF6;
+  --eb-cream:        #EAD5D6;
+  --eb-skin:         #F9ECDF;
+  --eb-text-dark:    #4A2C2A;
+  --eb-light-brown:  #A2777A;
+  --eb-light-pink:   #D8BFC0;
+  --eb-subtitle:     #7D5658;
+  --eb-deep-wine:    #421D24;
+  --eb-green-dot:    #25CA58;
+  --eb-success:      #1A9C43;
+  --eb-brown-gradient: linear-gradient(358deg, #492526 1.79%, #5D4143 97.65%);
+
+  /* ===== Theme tokens (card/section themes) ============================= */
+  --eb-theme-rose-bg: #D8BFC1;   --eb-theme-rose-title: #5D3136;   --eb-theme-rose-dots: rgba(254,251,246,0.9); --eb-theme-rose-border: rgba(66,29,36,0.22);
+  --eb-theme-medium-bg: #7B5A5C; --eb-theme-medium-title: #FEFBF6; --eb-theme-medium-dots: rgba(254,251,246,0.9); --eb-theme-medium-border: rgba(254,251,246,0.24);
+  --eb-theme-paper-bg: #FFFFFF;  --eb-theme-paper-title: #5D3136;  --eb-theme-paper-dots: rgba(93,49,54,0.32);   --eb-theme-paper-border: rgba(93,49,54,0.18);
+  --eb-theme-skin-bg: #F9ECDF;   --eb-theme-skin-title: #5D3136;   --eb-theme-skin-dots: rgba(66,29,36,0.35);    --eb-theme-skin-border: rgba(66,29,36,0.2);
+  --eb-theme-wine-bg: #5D3136;   --eb-theme-wine-title: #FEFBF6;   --eb-theme-wine-dots: rgba(254,251,246,0.9);  --eb-theme-wine-border: rgba(254,251,246,0.22);
+
+  /* ===== Semantic roles ================================================= */
+  --eb-frame:       var(--eb-dark-brown);
+  --eb-content:     var(--eb-white);
+  --eb-warm-accent: var(--eb-skin);
+  --eb-fg1:         var(--eb-text-dark);
+  --eb-fg2:         var(--eb-subtitle);
+  --eb-fg-muted:    var(--eb-light-brown);
+  --eb-fg-inverse:  var(--eb-white);
+  --eb-border:      var(--eb-light-pink);
+
+  /* ===== Fonts ==========================================================
+     Diatype is the canonical brand editorial font (per BRAND.md §3).
+     Space Grotesk sits ONLY as a visual fallback until /fonts/diatype-*.woff2
+     are installed — Diatype leads the stack. Do not substitute other fonts.  */
+  --eb-font-primary: 'Diatype', 'Space Grotesk', system-ui, sans-serif;
+  --eb-font-mono:    'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ===== Type scale (tokens/typography.json) ============================ */
+  --eb-fs-hero-home:    clamp(120px, 20vw, 280px);
+  --eb-fs-hero-sector:  clamp(44px, 5vw, 92px);
+  --eb-fs-section:      clamp(28px, 3.4vw, 44px);
+  --eb-fs-cta:          clamp(26px, 3.4vw, 40px);
+  --eb-fs-body:         15px;
+  --eb-fs-body-sm:      14px;
+  --eb-fs-card-title:   15px;    /* Diatype, lowercase */
+  --eb-fs-faq:          14px;    /* Diatype, lowercase */
+  --eb-fs-section-label:16px;    /* Mono */
+  --eb-fs-card-id:      12px;    /* Mono */
+  --eb-fs-step:         12px;    /* Mono */
+  --eb-fs-nav:          11px;    /* Mono */
+  --eb-fs-page-idx:     11px;    /* Mono */
+  --eb-fs-tag:          11px;    /* Mono */
+  --eb-fs-form:         9px;     /* Mono */
+  --eb-fs-micro:        7px;     /* Mono */
+
+  --eb-ls-page-idx:     0.2em;
+  --eb-ls-tag:          0.1em;
+  --eb-ls-step:         0.1em;
+  --eb-ls-card-id:      0.05em;
+  --eb-ls-micro:        0.09em;
+  --eb-ls-display:      -0.02em;
+
+  --eb-lh-hero:         0.85;
+  --eb-lh-section:      1.1;
+  --eb-lh-body:         1.6;
+
+  --eb-fw-reg: 300; --eb-fw-med: 500; --eb-fw-semi: 600; --eb-fw-bold: 700;
+
+  /* ===== Spacing (tokens/spacing.json) ================================== */
+  --eb-frame-padding:     8px;   /* 5px mobile */
+  --eb-content-padding:   40px;
+  --eb-section-gap:       60px;
+  --eb-base-unit:         4px;
+
+  --eb-radius-sm: 4px;   /* default */
+  --eb-radius-md: 8px;   /* cards */
+  --eb-radius-lg: 12px;  /* modals */
+
+  /* ===== Grain / blur =================================================== */
+  --eb-grain-opacity: 0.055;
+  --eb-grain-blend:   soft-light;
+  --eb-backdrop-blur: 7px;
+
+  /* ===== Motion ========================================================= */
+  --eb-ease-spring-pop:  cubic-bezier(.34,1.56,.64,1);    /* ≈ back.out(2) */
+  --eb-ease-elastic:     cubic-bezier(.34,1.48,.64,1);
+  --eb-ease-settle:      cubic-bezier(.22,.61,.36,1);     /* ≈ power2.out */
+  --eb-ease-symmetric:   cubic-bezier(.45,.05,.55,.95);   /* ≈ power2.inOut */
+  --eb-ease-panel:       cubic-bezier(0.16, 1, 0.3, 1);
+  --eb-dur-hover:   220ms;
+  --eb-dur-chip:    180ms;
+  --eb-dur-panel:   520ms;
+}
+
+/* ===== @font-face — Diatype, self-hosted (per BRAND.md §3) ==============
+   These three declarations are canonical. Paths match the brand repo.
+   The browser will silently fall through to Space Grotesk until the
+   woff2 files are present at /fonts/. ====================================== */
+@font-face {
+  font-family: 'Diatype';
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/diatype-bold.woff2') format('woff2'),
+       url('/fonts/diatype-bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Diatype';
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/diatype-med.woff2') format('woff2'),
+       url('/fonts/diatype-med.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Diatype';
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/diatype-reg.woff2') format('woff2'),
+       url('/fonts/diatype-reg.woff2') format('woff2');
+}
+
+/* ===== Shell base ====================================================== */
+body {
+  font-family: var(--eb-font-mono);
+  color: var(--eb-text-dark);
+  background: var(--eb-dark-brown);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  isolation: isolate;
+}
+.eb-page { font-family: var(--eb-font-primary); }
+
+/* ===== Type utility classes =========================================== */
+.eb-hero { font-family: var(--eb-font-primary); font-size: var(--eb-fs-hero-home); font-weight: 700; line-height: var(--eb-lh-hero); letter-spacing: var(--eb-ls-display); }
+.eb-hero-sector { font-family: var(--eb-font-primary); font-size: var(--eb-fs-hero-sector); font-weight: 700; white-space: pre-line; }
+.eb-section-h  { font-family: var(--eb-font-primary); font-size: var(--eb-fs-section); font-weight: 700; line-height: var(--eb-lh-section); }
+.eb-cta-title  { font-family: var(--eb-font-primary); font-size: var(--eb-fs-cta); line-height: var(--eb-lh-section); }
+.eb-body       { font-family: var(--eb-font-primary); font-size: var(--eb-fs-body); font-weight: 300; line-height: var(--eb-lh-body); color: var(--eb-subtitle); }
+.eb-card-title { font-family: var(--eb-font-primary); font-size: var(--eb-fs-card-title); font-weight: 700; text-transform: lowercase; }
+.eb-faq-q      { font-family: var(--eb-font-primary); font-size: var(--eb-fs-faq); font-weight: 600; text-transform: lowercase; }
+
+.eb-mono        { font-family: var(--eb-font-mono); text-transform: uppercase; }
+.eb-page-idx    { font-family: var(--eb-font-mono); font-size: var(--eb-fs-page-idx); font-weight: 700; letter-spacing: var(--eb-ls-page-idx); text-transform: uppercase; }
+.eb-tag         { font-family: var(--eb-font-mono); font-size: var(--eb-fs-tag); font-weight: 700; letter-spacing: var(--eb-ls-tag); text-transform: uppercase; }
+.eb-section-lbl { font-family: var(--eb-font-mono); font-size: var(--eb-fs-section-label); font-weight: 700; text-transform: uppercase; }
+.eb-card-id     { font-family: var(--eb-font-mono); font-size: var(--eb-fs-card-id); font-weight: 700; letter-spacing: var(--eb-ls-card-id); text-transform: uppercase; }
+.eb-step        { font-family: var(--eb-font-mono); font-size: var(--eb-fs-step); font-weight: 600; letter-spacing: var(--eb-ls-step); text-transform: uppercase; }
+.eb-nav         { font-family: var(--eb-font-mono); font-size: var(--eb-fs-nav); font-weight: 600; text-transform: uppercase; }
+.eb-micro       { font-family: var(--eb-font-mono); font-size: var(--eb-fs-micro); font-weight: 700; letter-spacing: var(--eb-ls-micro); text-transform: uppercase; }
+
+/* Card body indent — intentional typographic detail */
+.eb-card-body { text-indent: 30px; }
+
+/* Green dot pulse */
+@keyframes dotBlink { 0%,100% { opacity: 1; } 50% { opacity: 0.15; } }
+.eb-dot { width: 5px; height: 5px; background: var(--eb-green-dot); border-radius: 50%; animation: dotBlink 2s ease-in-out infinite; }

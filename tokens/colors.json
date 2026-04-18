@@ -32,6 +32,10 @@
       "value": "#7D5658",
       "usage": "Secondary heading text on light backgrounds."
     },
+    "deepWine": {
+      "value": "#421D24",
+      "usage": "Deep wine. Used in gradient stops, brand-mark background rect, double-chevron arrow toggle. Rarely a surface color — prefer #5D3136 for frames."
+    },
     "brownGradient": {
       "value": "linear-gradient(358deg, #492526 1.79%, #5D4143 97.65%)",
       "usage": "SVG fills for display title text, hero section gradients."

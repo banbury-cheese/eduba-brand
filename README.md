@@ -4,23 +4,37 @@ Reference bundle for the Eduba visual identity, design tokens, voice, and compon
 
 ## How to use with an AI agent
 
-Point the agent at `AGENT_BRIEF.md` first. It is the shortest reliable entry point.
+### Option A — Agent Skill (recommended)
+
+The brand ships as a proper [Agent Skill](https://agentskills.io) at `.agents/skills/eduba-brand/`. Copy that directory into any project to make the skill available:
+
+```bash
+cp -r path/to/eduba-brand/.agents/skills/eduba-brand /your-project/.agents/skills/
+```
+
+Then invoke it in Claude Code, GitHub Copilot Agent, or OpenAI Codex with:
+```
+/eduba-brand
+```
+
+The skill activates automatically when you mention "eduba brand", "eduba design system", or ask to build anything Eduba-branded. It loads `SKILL.md` plus on-demand reference files for tokens, recipes, and voice.
+
+### Option B — Manual context
+
+Point the agent at `AGENT_BRIEF.md` first. It is the fastest reliable entry point.
 
 ```
 Read AGENT_BRIEF.md before writing any code for this project.
-If needed, then read PRODUCT_UI.md, voice/PRODUCT_VOICE.md,
-and the token files. Use BRAND.md as deep reference, not as
-the only file you blindly follow.
+If needed, also read AGENT_SKILLS.md for copy-paste recipes,
+PRODUCT_UI.md for layout patterns, and voice/PRODUCT_VOICE.md
+for in-app copy. Use BRAND.md as deep reference only.
 ```
-
-For marketing/editorial voice, also read `voice/VOICE.md`.
-For product/UI copy, read `voice/PRODUCT_VOICE.md`.
 
 ### Precedence
 
 If files disagree, use this order:
 
-1. `tokens/*.json` and `animations/animations.ts`
+1. `tokens/*.json`, `tokens/tokens.css`, and `animations/animations.ts`
 2. `AGENT_BRIEF.md`
 3. `PRODUCT_UI.md`
 4. `voice/PRODUCT_VOICE.md`
@@ -34,16 +48,20 @@ If files disagree, use this order:
 ```
 eduba-brand/
 ├── AGENT_BRIEF.md            ← Start here. Fast agent-safe brief.
-├── PRODUCT_UI.md             ← UI patterns, motifs, layout guidance.
+├── AGENT_SKILLS.md           ← Per-skill recipes (folder tabs, shell, grain, etc.)
 ├── BRAND.md                  ← Deep reference and rationale.
+├── PRODUCT_UI.md             ← UI patterns, motifs, layout guidance.
+├── colors_and_type.css       ← CSS custom properties + utility classes (framework-agnostic)
 ├── tokens/
+│   ├── tokens.css            ← CSS var mirror of all tokens + .eb-* utility classes
 │   ├── colors.json           ← All colors with usage notes
 │   ├── typography.json       ← Fonts, scale, conventions
 │   ├── spacing.json          ← Spacing, layout, border radius
 │   └── breakpoints.json      ← Responsive breakpoints and usage
 ├── animations/
-│   └── animations.ts         ← GSAP patterns, hover/toggle helpers, motion rules
+│   └── animations.ts         ← GSAP patterns, hover/toggle helpers, duration constants
 ├── fonts/
+│   ├── README.md             ← Font installation instructions
 │   ├── diatype-bold.woff2    ← Diatype 700
 │   ├── diatype-med.woff2     ← Diatype 500
 │   └── diatype-reg.woff2     ← Diatype 300
@@ -53,15 +71,46 @@ eduba-brand/
 ├── assets/
 │   └── svgs/
 │       ├── logo.svg              ← Eduba logo (2-path, animated)
-│       ├── tab-shape-wide.svg    ← Desktop nav tab (344×46)
-│       ├── tab-shape-compact.svg ← Mobile nav tab (103×46)
+│       ├── brand-mark.svg        ← 64×64 logomark on dark wine rounded bg
+│       ├── brand-mark-white.svg  ← White logomark, no background
+│       ├── wordmark.svg          ← Large "EDUBA" display wordmark
+│       ├── tab-shape-wide.svg    ← Desktop folder tab (344×46)
+│       ├── tab-shape-compact.svg ← Mobile folder tab (103×46)
 │       ├── arrow-corner.svg      ← Decorative corner accent
-│       └── dots-grid.svg         ← Animated dots icon (16 data-dot paths)
+│       ├── dots-grid.svg         ← Animated dots icon (16 data-dot paths)
+│       └── icons/
+│           ├── icon-bridge.svg   ← 2 crossing diagonals + 3 nodes
+│           ├── icon-corners.svg  ← 4 corner nodes + 1 diagonal
+│           ├── icon-columns.svg  ← 2 vertical strokes + 6 nodes
+│           ├── icon-fork.svg     ← V-branch + 3 nodes
+│           └── icon-rails.svg    ← 2 horizontal rails + 5 nodes
+├── ui_kits/
+│   └── eduba-io/             ← React recreation of eduba.io (reference)
+│       ├── index.html        ← Assembled page, runs in browser with Babel + GSAP CDN
+│       ├── Chrome.jsx        ← TopNav, BottomNav, Clock
+│       ├── Sections.jsx      ← Hero, Framework
+│       ├── Resources.jsx     ← Resource grid, Services cards
+│       ├── Works.jsx         ← Stacked folder-tab cards
+│       ├── ServicesFolder.jsx← Services accordion
+│       └── Contact.jsx       ← Contact form + Footer
+├── preview/                  ← 19 visual HTML reference tabs
+│   ├── colors-*.html
+│   ├── type-*.html
+│   ├── spacing-*.html
+│   ├── brand-*.html
+│   └── components-*.html
 ├── voice/
 │   ├── PRODUCT_VOICE.md      ← In-app/product copy guidance
 │   └── VOICE.md              ← Marketing/editorial voice system
-└── components/
-    └── FilmGrain.tsx         ← React/Next.js film grain component
+├── components/
+│   └── FilmGrain.tsx         ← React/Next.js film grain component
+└── .agents/skills/
+    └── eduba-brand/          ← Agent Skill (agentskills.io format)
+        ├── SKILL.md          ← Invoke with /eduba-brand
+        └── references/
+            ├── TOKENS.md     ← Complete token reference
+            ├── SKILLS.md     ← Copy-paste implementation recipes
+            └── VOICE.md      ← Voice + copy rules
 ```
 
 ---

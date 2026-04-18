@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Eduba.io — UI Kit</title>
+<link rel="stylesheet" href="../../colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#5d3136; font-family:'IBM Plex Mono', ui-monospace, monospace; }
+  * { box-sizing: border-box; }
+  @keyframes pulse { 0%,100% { opacity:1 } 50% { opacity:.35 } }
+  button { font-family: inherit; }
+  ::selection { background:#D8BFC0; color:#5d3136; }
+  .filmGrain { position:fixed; inset:0; width:100%; height:100%;
+    pointer-events:none; opacity:0.055; mix-blend-mode:soft-light; z-index:9999; }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<canvas class="filmGrain" aria-hidden="true" id="grain"></canvas>
+<script>
+(function(){
+  var canvas = document.getElementById('grain');
+  var ctx = canvas.getContext('2d', {alpha:true, desynchronized:true});
+  var imageData, raf, lastTime = 0;
+  var FPS = 15, frameDur = 1000/FPS, running = true;
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function render() {
+    if (!imageData) return;
+    var px = imageData.data;
+    for (var i = 0; i < px.length; i += 4) {
+      var g = (Math.random() * 255) | 0;
+      px[i] = px[i+1] = px[i+2] = g; px[i+3] = 255;
+    }
+    ctx.putImageData(imageData, 0, 0);
+  }
+  function resize() {
+    var scale = Math.max(1, Math.sqrt(innerWidth * innerHeight / 2000000));
+    canvas.width = Math.ceil(innerWidth / scale);
+    canvas.height = Math.ceil(innerHeight / scale);
+    imageData = ctx.createImageData(canvas.width, canvas.height);
+    render();
+  }
+  function loop(t) {
+    if (!running || mq.matches) return;
+    raf = requestAnimationFrame(loop);
+    if (t - lastTime < frameDur) return;
+    lastTime = t; render();
+  }
+  function start() {
+    cancelAnimationFrame(raf); lastTime = 0;
+    if (!mq.matches) raf = requestAnimationFrame(loop);
+  }
+  resize(); start();
+  window.addEventListener('resize', function(){ resize(); start(); });
+  mq.addEventListener('change', start);
+})();
+</script>
+
+<script type="text/babel" src="./Chrome.jsx"></script>
+<script type="text/babel" src="./Sections.jsx"></script>
+<script type="text/babel" src="./Resources.jsx"></script>
+<script type="text/babel" src="./Works.jsx"></script>
+<script type="text/babel" src="./ServicesFolder.jsx"></script>
+<script type="text/babel" src="./Contact.jsx"></script>
+
+<script type="text/babel">
+function App() {
+  const [section, setSection] = React.useState('home');
+  const contentRef = React.useRef(null);
+
+  const onNav = (key) => {
+    setSection(key);
+    const map = { home:'01 Hero', readings:'02 Works', clief:'03 Services', contact:'05 Contact' };
+    const target = document.querySelector(`[data-screen-label="${map[key]||'01 Hero'}"]`);
+    if (target && contentRef.current) {
+      contentRef.current.scrollTo({ top: target.offsetTop - 60, behavior:'smooth' });
+    }
+  };
+
+  return (
+    <div style={{
+      position:'fixed', inset:0, display:'grid',
+      gridTemplateRows:'auto 1fr auto',
+      padding:8, background:'#5d3136',
+      height:'100svh', boxSizing:'border-box', isolation:'isolate',
+    }}>
+      <TopNav onNav={onNav}/>
+      <div ref={contentRef} id="content-card" style={{
+        background:'#FEFBF6', borderRadius:4,
+        overflowY:'auto', overflowX:'hidden', position:'relative',
+      }}>
+        <Hero/>
+        <Works/>
+        <ServicesFolder/>
+        <Resources/>
+        <Contact/>
+        <Footer/>
+      </div>
+      {/* Bottom nav sits in the frame, overlays the content card */}
+      <div style={{position:'relative', height:0}}>
+        <BottomNav contentRef={contentRef}/>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
