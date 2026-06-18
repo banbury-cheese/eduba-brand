@@ -1,0 +1,300 @@
+/* ==========================================================================
+   @eduba/ui — tokens.css
+   Mirrored from eduba-brand/tokens/tokens.css. Keep in sync.
+   Order of authority: tokens > AGENT_BRIEF > PRODUCT_UI > BRAND.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap");
+
+:root {
+  /* ===== Colors ========================================================== */
+  --eb-dark-brown: #5d3136;
+  --eb-white: #fefbf6;
+  --eb-cream: #ead5d6;
+  --eb-skin: #f9ecdf;
+  --eb-text-dark: #4a2c2a;
+  --eb-light-brown: #a2777a;
+  --eb-light-pink: #d8bfc0;
+  --eb-subtitle: #7d5658;
+  --eb-deep-wine: #421d24;
+  --eb-green-dot: #25ca58;
+  --eb-success: #1a9c43;
+  --eb-warning: #c76a2b;
+  --eb-danger: #b6313a;
+  --eb-brown-gradient: linear-gradient(358deg, #492526 1.79%, #5d4143 97.65%);
+
+  /* ===== Theme tokens — only two shipped: paper (light) and wine (dark). =
+     The other brand palettes (rose, medium-brown, skin) live in the brand
+     reference repo but are intentionally out of the runtime UI surface. */
+  --eb-theme-paper-bg: #ffffff;
+  --eb-theme-paper-title: #5d3136;
+  --eb-theme-paper-dots: rgba(93, 29, 36, 0.32);
+  --eb-theme-paper-border: rgba(93, 49, 54, 0.16);
+
+  --eb-theme-wine-bg: #2e1a1d; /* deeper than #5D3136 — better page chrome */
+  --eb-theme-wine-title: #fefbf6;
+  --eb-theme-wine-dots: rgba(254, 251, 246, 0.9);
+  --eb-theme-wine-border: rgba(254, 251, 246, 0.18);
+
+  /* ===== Semantic roles ================================================= */
+  --eb-frame: var(--eb-dark-brown);
+  --eb-content: var(--eb-white);
+  --eb-warm-accent: var(--eb-skin);
+  --eb-fg1: var(--eb-text-dark);
+  --eb-fg2: var(--eb-subtitle);
+  --eb-fg-muted: var(--eb-light-brown);
+  --eb-fg-inverse: var(--eb-white);
+  --eb-border: var(--eb-light-pink);
+
+  /* ===== Fonts ========================================================== */
+  --eb-font-primary: "Diatype", "Space Grotesk", system-ui, sans-serif;
+  --eb-font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ===== Type scale ===================================================== */
+  --eb-fs-hero-home: clamp(120px, 20vw, 280px);
+  --eb-fs-hero-sector: clamp(44px, 5vw, 92px);
+  --eb-fs-section: clamp(28px, 3.4vw, 44px);
+  --eb-fs-cta: clamp(26px, 3.4vw, 40px);
+  --eb-fs-body: 15px;
+  --eb-fs-body-sm: 14px;
+  --eb-fs-card-title: 15px;
+  --eb-fs-faq: 14px;
+  --eb-fs-section-label: 16px;
+  --eb-fs-card-id: 12px;
+  --eb-fs-step: 12px;
+  --eb-fs-nav: 11px;
+  --eb-fs-page-idx: 11px;
+  --eb-fs-tag: 11px;
+  --eb-fs-form: 9px;
+  --eb-fs-micro: 7px;
+
+  --eb-ls-page-idx: 0.2em;
+  --eb-ls-tag: 0.1em;
+  --eb-ls-step: 0.1em;
+  --eb-ls-card-id: 0.05em;
+  --eb-ls-micro: 0.09em;
+  --eb-ls-display: -0.02em;
+
+  --eb-lh-hero: 0.85;
+  --eb-lh-section: 1.1;
+  --eb-lh-body: 1.6;
+
+  --eb-fw-reg: 300;
+  --eb-fw-med: 500;
+  --eb-fw-semi: 600;
+  --eb-fw-bold: 700;
+
+  /* ===== Spacing ======================================================== */
+  --eb-frame-padding: 8px;
+  --eb-content-padding: 40px;
+  --eb-section-gap: 60px;
+  --eb-base-unit: 4px;
+
+  --eb-radius-sm: 4px;
+  --eb-radius-md: 8px;
+  --eb-radius-lg: 12px;
+  --eb-radius-full: 9999px;
+
+  /* ===== Grain / blur =================================================== */
+  --eb-grain-opacity: 0.055;
+  --eb-grain-blend: soft-light;
+  --eb-backdrop-blur: 7px;
+
+  /* ===== Motion ========================================================= */
+  /* Default UI eases */
+  --eb-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --eb-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --eb-ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* Brand-expressive eases — used by motion primitives only */
+  --eb-ease-spring-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --eb-ease-elastic: cubic-bezier(0.34, 1.48, 0.64, 1);
+  --eb-ease-settle: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --eb-ease-symmetric: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  --eb-ease-panel: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Duration budget (locked — keep interactions inside these) */
+  --eb-dur-press: 120ms;
+  --eb-dur-tooltip: 175ms;
+  --eb-dur-dropdown: 200ms;
+  --eb-dur-modal: 300ms;
+  --eb-dur-drawer: 400ms;
+  /* Brand-expressive */
+  --eb-dur-hover: 220ms;
+  --eb-dur-chip: 180ms;
+  --eb-dur-panel: 520ms;
+
+  /* ===== Focus ring ===================================================== */
+  --eb-focus-ring: 0 0 0 2px var(--eb-light-pink);
+  --eb-focus-outline: 2px dashed var(--eb-dark-brown);
+
+  /* ===== Elevation ====================================================== */
+  /* Warm wine-tinted shadows — used by popovers, dropdowns, hover cards. */
+  --eb-shadow-pop: 0 12px 32px -12px rgba(66, 29, 36, 0.28), 0 2px 8px -4px rgba(66, 29, 36, 0.14);
+  --eb-shadow-card: 0 1px 2px rgba(66, 29, 36, 0.06);
+
+  /* ===== Theme defaults (paper / light) — must stay inside :root and BEFORE
+     the [data-theme="…"] blocks. :root and [data-theme="…"] both have
+     specificity (0,1,0); if these came later they would defeat the override.
+
+     PAPER (light)
+     - page bg:   white                       — clean editorial surface
+     - page fg:   #5D3136 dark brown          — primary ink
+     - surface:   #F9ECDF skin                — cards float a notch warmer
+     - primary:   dark brown                  — buttons read against white/skin
+     - muted:     #EAD5D6 cream               — soft backdrop for code blocks
+     - accent:    #D8BFC0 light pink          — focus / accent hover */
+  --eb-bg: var(--eb-theme-paper-bg);
+  --eb-fg: var(--eb-theme-paper-title);
+  --eb-surface: var(--eb-skin);
+  --eb-surface-fg: var(--eb-text-dark);
+  --eb-primary-bg: var(--eb-dark-brown);
+  --eb-primary-fg: var(--eb-cream);
+  --eb-muted-bg: var(--eb-cream);
+  --eb-muted-fg: var(--eb-light-brown);
+  --eb-accent-bg: var(--eb-light-pink);
+  --eb-accent-fg: var(--eb-dark-brown);
+  --eb-border-color: var(--eb-theme-paper-border);
+  --eb-dot-color: var(--eb-theme-paper-dots);
+
+  /* Tailwind `--color-*` aliases — declared here AND inside each [data-theme]
+     block so inner-scope theming actually re-cascades. Without this, Tailwind
+     would only ever emit `--color-background: var(--eb-bg)` at :root, and
+     descendant data-theme overrides of `--eb-bg` couldn't lift up to it. */
+  --color-background: var(--eb-bg);
+  --color-foreground: var(--eb-fg);
+  --color-card: var(--eb-surface);
+  --color-card-foreground: var(--eb-surface-fg);
+  --color-popover: var(--eb-surface);
+  --color-popover-foreground: var(--eb-surface-fg);
+  --color-primary: var(--eb-primary-bg);
+  --color-primary-foreground: var(--eb-primary-fg);
+  --color-secondary: var(--eb-muted-bg);
+  --color-secondary-foreground: var(--eb-fg);
+  --color-muted: var(--eb-muted-bg);
+  --color-muted-foreground: var(--eb-muted-fg);
+  --color-accent: var(--eb-accent-bg);
+  --color-accent-foreground: var(--eb-accent-fg);
+  --color-border: var(--eb-border-color);
+}
+
+/* ===== Theme variants — two only: paper (light) and wine (dark). Both are
+        fully contrast-balanced: every role flips so buttons stay visible and
+        text never sits on its own background. Each block re-declares both
+        `--eb-*` AND the Tailwind `--color-*` aliases so nested-scope theming
+        propagates correctly. */
+[data-theme="paper"] {
+  --eb-bg: var(--eb-theme-paper-bg);
+  --eb-fg: var(--eb-theme-paper-title);
+  --eb-surface: var(--eb-skin);
+  --eb-surface-fg: var(--eb-text-dark);
+  --eb-primary-bg: var(--eb-dark-brown);
+  --eb-primary-fg: var(--eb-cream);
+  --eb-muted-bg: var(--eb-cream);
+  --eb-muted-fg: var(--eb-light-brown);
+  --eb-accent-bg: var(--eb-light-pink);
+  --eb-accent-fg: var(--eb-dark-brown);
+  --eb-border-color: var(--eb-theme-paper-border);
+  --eb-dot-color: var(--eb-theme-paper-dots);
+
+  --color-background: var(--eb-bg);
+  --color-foreground: var(--eb-fg);
+  --color-card: var(--eb-surface);
+  --color-card-foreground: var(--eb-surface-fg);
+  --color-popover: var(--eb-surface);
+  --color-popover-foreground: var(--eb-surface-fg);
+  --color-primary: var(--eb-primary-bg);
+  --color-primary-foreground: var(--eb-primary-fg);
+  --color-secondary: var(--eb-muted-bg);
+  --color-secondary-foreground: var(--eb-fg);
+  --color-muted: var(--eb-muted-bg);
+  --color-muted-foreground: var(--eb-muted-fg);
+  --color-accent: var(--eb-accent-bg);
+  --color-accent-foreground: var(--eb-accent-fg);
+  --color-border: var(--eb-border-color);
+  --shadow-pop: var(--eb-shadow-pop);
+  --shadow-card: var(--eb-shadow-card);
+}
+
+/* WINE (dark)
+   - page bg:   #2E1A1D — deeper than the brand wine #5D3136. The brand wine
+                          is reserved for buttons/surfaces; the page chrome
+                          goes one step darker so cards/buttons can pop.
+   - page fg:   cream
+   - surface:   #5D3136 brand wine — cards sit a step lighter than the page
+   - primary:   cream — buttons go light against the dark page
+   - muted:     low-opacity cream — quiet backdrop for code blocks
+   - accent:    light pink — focus / hover */
+[data-theme="wine"] {
+  --eb-bg: var(--eb-theme-wine-bg);
+  --eb-fg: var(--eb-theme-wine-title);
+  --eb-surface: var(--eb-dark-brown);
+  --eb-surface-fg: var(--eb-cream);
+  --eb-primary-bg: var(--eb-cream);
+  --eb-primary-fg: var(--eb-dark-brown);
+  --eb-muted-bg: rgba(254, 251, 246, 0.06);
+  --eb-muted-fg: rgba(254, 251, 246, 0.55);
+  --eb-accent-bg: var(--eb-light-pink);
+  --eb-accent-fg: var(--eb-dark-brown);
+  --eb-border-color: var(--eb-theme-wine-border);
+  --eb-dot-color: var(--eb-theme-wine-dots);
+  --eb-shadow-pop: 0 12px 32px -10px rgba(0, 0, 0, 0.6), 0 2px 8px -4px rgba(0, 0, 0, 0.4);
+  --eb-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+  --color-background: var(--eb-bg);
+  --color-foreground: var(--eb-fg);
+  --color-card: var(--eb-surface);
+  --color-card-foreground: var(--eb-surface-fg);
+  --color-popover: var(--eb-surface);
+  --color-popover-foreground: var(--eb-surface-fg);
+  --color-primary: var(--eb-primary-bg);
+  --color-primary-foreground: var(--eb-primary-fg);
+  --color-secondary: var(--eb-muted-bg);
+  --color-secondary-foreground: var(--eb-fg);
+  --color-muted: var(--eb-muted-bg);
+  --color-muted-foreground: var(--eb-muted-fg);
+  --color-accent: var(--eb-accent-bg);
+  --color-accent-foreground: var(--eb-accent-fg);
+  --color-border: var(--eb-border-color);
+  --shadow-pop: var(--eb-shadow-pop);
+  --shadow-card: var(--eb-shadow-card);
+}
+
+@media (prefers-color-scheme: dark) {
+  /* If the consumer didn't pin a theme (no data-theme on <html>), respect
+     system preference. <ThemeProvider> additionally handles localStorage. */
+  :root:not([data-theme]) {
+    --eb-bg: var(--eb-theme-wine-bg);
+    --eb-fg: var(--eb-theme-wine-title);
+    --eb-surface: var(--eb-dark-brown);
+    --eb-surface-fg: var(--eb-cream);
+    --eb-primary-bg: var(--eb-cream);
+    --eb-primary-fg: var(--eb-dark-brown);
+    --eb-muted-bg: rgba(254, 251, 246, 0.06);
+    --eb-muted-fg: rgba(254, 251, 246, 0.55);
+    --eb-border-color: var(--eb-theme-wine-border);
+    --eb-dot-color: var(--eb-theme-wine-dots);
+    --eb-shadow-pop: 0 12px 32px -10px rgba(0, 0, 0, 0.6), 0 2px 8px -4px rgba(0, 0, 0, 0.4);
+    --eb-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ===== @font-face — Diatype, self-hosted ================================ */
+@font-face {
+  font-family: "Diatype";
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/diatype-bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Diatype";
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/diatype-med.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Diatype";
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/diatype-reg.woff2") format("woff2");
+}

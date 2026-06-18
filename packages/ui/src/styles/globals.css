@@ -1,0 +1,198 @@
+/* ==========================================================================
+   @eduba/ui — globals.css
+   Base layer resets, keyframes, focus ring, reduced-motion baseline.
+   ========================================================================== */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--color-border, var(--eb-border));
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    isolation: isolate;
+  }
+
+  /* Touch-device hover gating — don't fire :hover on tap. */
+  @media (hover: none), (pointer: coarse) {
+    *:hover {
+      transition: none !important;
+    }
+  }
+
+  /* Reduced motion — keep opacity/color transitions; kill movement. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Default focus-visible: dashed brown outline matching eduba aesthetic */
+  :where(button, a, [role="button"], input, textarea, select, [tabindex]):focus-visible {
+    outline: var(--eb-focus-outline);
+    outline-offset: 3px;
+  }
+}
+
+/* ===== Keyframes =========================================================== */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    transform: translate(5%, -10%);
+  }
+  40% {
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    transform: translate(-10%, 5%);
+  }
+  60% {
+    transform: translate(15%, 0);
+  }
+  70% {
+    transform: translate(0, 10%);
+  }
+  80% {
+    transform: translate(-15%, 0);
+  }
+  90% {
+    transform: translate(10%, 5%);
+  }
+}
+
+@keyframes dotBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Glow-sweep for Button variant="glow" */
+@keyframes glow-sweep {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* FAQ-style plus/minus accordion icon (used by Accordion with iconVariant="plus") */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+/* Collapsible open/close — same curve as accordion, driven by Radix's measured height. */
+@keyframes collapsible-down {
+  from {
+    height: 0;
+    opacity: 0.6;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+    opacity: 1;
+  }
+}
+@keyframes collapsible-up {
+  from {
+    height: var(--radix-collapsible-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0.6;
+  }
+}
+
+/* ===== FilmGrain overlay class (used by <FilmGrain />) ===================== */
+.filmGrain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: var(--eb-grain-opacity);
+  mix-blend-mode: var(--eb-grain-blend);
+  z-index: 9999;
+}
+
+/* ===== Green dot pulse (utility) =========================================== */
+.eb-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: var(--eb-green-dot);
+  border-radius: var(--eb-radius-full);
+  animation: var(--animate-dot-blink);
+}

@@ -1,0 +1,92 @@
+/* ==========================================================================
+   @eduba/ui — Tailwind v4 @theme block.
+   Binds eduba's --eb-* tokens to Tailwind's design system so utilities like
+   `bg-primary`, `text-muted`, `rounded-md`, `font-mono`, `ease-out` resolve
+   to brand values automatically.
+   ========================================================================== */
+
+/*
+ * NOTE on nested-theme propagation: Tailwind emits these `--color-*` bindings
+ * at :root only. The `var(--eb-*)` references are resolved once at :root, so
+ * descendant `[data-theme="…"]` containers that override `--eb-bg` can't lift
+ * that change up to `--color-background`. To support per-section theming, the
+ * `--color-*` aliases are ALSO declared inside each `[data-theme]` block in
+ * tokens.css — the closer declaration wins for descendants.
+ */
+@theme {
+  --color-background: var(--eb-bg);
+  --color-foreground: var(--eb-fg);
+  --color-card: var(--eb-surface);
+  --color-card-foreground: var(--eb-surface-fg);
+  --color-popover: var(--eb-surface);
+  --color-popover-foreground: var(--eb-surface-fg);
+  --color-primary: var(--eb-primary-bg);
+  --color-primary-foreground: var(--eb-primary-fg);
+  --color-secondary: var(--eb-muted-bg);
+  --color-secondary-foreground: var(--eb-fg);
+  --color-muted: var(--eb-muted-bg);
+  --color-muted-foreground: var(--eb-muted-fg);
+  --color-accent: var(--eb-accent-bg);
+  --color-accent-foreground: var(--eb-accent-fg);
+  --color-destructive: var(--eb-danger);
+  --color-destructive-foreground: var(--eb-white);
+  --color-success: var(--eb-success);
+  --color-warning: var(--eb-warning);
+  --color-border: var(--eb-border-color);
+  --color-input: var(--eb-border-color);
+  --color-ring: var(--eb-light-pink);
+
+  /* Direct brand color access */
+  --color-eb-dark-brown: var(--eb-dark-brown);
+  --color-eb-white: var(--eb-white);
+  --color-eb-cream: var(--eb-cream);
+  --color-eb-skin: var(--eb-skin);
+  --color-eb-text: var(--eb-text-dark);
+  --color-eb-light-brown: var(--eb-light-brown);
+  --color-eb-light-pink: var(--eb-light-pink);
+  --color-eb-subtitle: var(--eb-subtitle);
+  --color-eb-deep-wine: var(--eb-deep-wine);
+
+  /* Typography */
+  --font-sans: var(--eb-font-primary);
+  --font-mono: var(--eb-font-mono);
+
+  /* Radius */
+  --radius-sm: var(--eb-radius-sm);
+  --radius-md: var(--eb-radius-md);
+  --radius-lg: var(--eb-radius-lg);
+  --radius: var(--eb-radius-md);
+
+  /* Elevation */
+  --shadow-pop: var(--eb-shadow-pop);
+  --shadow-card: var(--eb-shadow-card);
+
+  /* Easing — default UI */
+  --ease-out: var(--eb-ease-out);
+  --ease-in-out: var(--eb-ease-in-out);
+  --ease-drawer: var(--eb-ease-drawer);
+
+  /* Easing — brand-expressive (primitives only) */
+  --ease-spring-pop: var(--eb-ease-spring-pop);
+  --ease-elastic: var(--eb-ease-elastic);
+  --ease-settle: var(--eb-ease-settle);
+  --ease-symmetric: var(--eb-ease-symmetric);
+  --ease-panel: var(--eb-ease-panel);
+
+  /* Duration tokens */
+  --duration-press: var(--eb-dur-press);
+  --duration-tooltip: var(--eb-dur-tooltip);
+  --duration-dropdown: var(--eb-dur-dropdown);
+  --duration-modal: var(--eb-dur-modal);
+  --duration-drawer: var(--eb-dur-drawer);
+
+  /* Animations (keyframes defined in globals.css) */
+  --animate-collapsible-down: collapsible-down 250ms var(--ease-out);
+  --animate-collapsible-up: collapsible-up 200ms var(--ease-out);
+  --animate-shimmer: shimmer 1.6s var(--ease-in-out) infinite;
+  --animate-grain-noise: grain 8s steps(8) infinite;
+  --animate-dot-blink: dotBlink 2s ease-in-out infinite;
+  --animate-marquee: marquee 14s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 14s linear infinite;
+  --animate-spin-slow: spin 2s linear infinite;
+}

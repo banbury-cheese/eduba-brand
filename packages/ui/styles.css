@@ -1,0 +1,6 @@
+/* eduba/ui — single-import entry. See README for consumer setup. */
+
+@import "tw-animate-css";
+@import "./src/styles/tokens.css";
+@import "./src/styles/theme.css";
+@import "./src/styles/globals.css";
