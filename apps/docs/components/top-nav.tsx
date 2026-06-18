@@ -20,27 +20,29 @@ export function TopNav() {
   const dark = mounted && isDark;
   return (
     <header className="eb-frame-topnav">
-      <Link href="/" className="flex items-center gap-2 group">
+      <Link href="/" className="flex shrink-0 items-center gap-2 group">
         <span className="block h-1.5 w-1.5 rounded-full bg-[var(--eb-green-dot)] [animation:dotBlink_2s_ease-in-out_infinite]" />
-        <Mono className="text-[10px] tracking-[0.16em]">@eduba/ui · v0.0.1</Mono>
+        <Mono className="whitespace-nowrap text-[10px] tracking-[0.14em] sm:tracking-[0.16em]">
+          @eduba/ui<span className="hidden sm:inline"> · v0.0.1</span>
+        </Mono>
       </Link>
-      <nav className="flex items-center gap-5">
+      <nav className="flex shrink-0 items-center gap-3.5 sm:gap-5">
         <Link
           href="/docs"
-          className="text-[10px] font-mono uppercase tracking-[0.16em] font-semibold opacity-80 hover:opacity-100 transition-opacity"
+          className="whitespace-nowrap text-[10px] font-mono uppercase tracking-[0.12em] sm:tracking-[0.16em] font-semibold opacity-80 hover:opacity-100 transition-opacity"
         >
           components
         </Link>
         <Link
           href="/themes"
-          className="text-[10px] font-mono uppercase tracking-[0.16em] font-semibold opacity-80 hover:opacity-100 transition-opacity"
+          className="whitespace-nowrap text-[10px] font-mono uppercase tracking-[0.12em] sm:tracking-[0.16em] font-semibold opacity-80 hover:opacity-100 transition-opacity"
         >
           themes
         </Link>
         <Link
           href="https://github.com/banbury-cheese/eduba-brand"
           target="_blank"
-          className="text-[10px] font-mono uppercase tracking-[0.16em] font-semibold opacity-80 hover:opacity-100 transition-opacity"
+          className="hidden whitespace-nowrap text-[10px] font-mono uppercase tracking-[0.12em] sm:tracking-[0.16em] font-semibold opacity-80 transition-opacity hover:opacity-100 sm:inline"
         >
           github
         </Link>
@@ -48,7 +50,7 @@ export function TopNav() {
           type="button"
           onClick={toggle}
           aria-label={`Switch to ${dark ? "light" : "dark"} theme`}
-          className="ml-1 inline-flex items-center gap-1.5 rounded-sm border border-current/30 px-2 py-0.5 text-[10px] font-mono uppercase tracking-[0.16em] font-semibold opacity-80 hover:opacity-100 hover:border-current/60 transition-[opacity,border-color,transform] duration-[var(--duration-press)] active:scale-[0.97]"
+          className="inline-flex shrink-0 items-center gap-1.5 rounded-sm border border-current/30 px-2 py-0.5 text-[10px] font-mono uppercase tracking-[0.12em] sm:tracking-[0.16em] font-semibold opacity-80 hover:opacity-100 hover:border-current/60 transition-[opacity,border-color,transform] duration-[var(--duration-press)] active:scale-[0.97]"
         >
           {/* Sun in light mode, moon in dark — drawn in currentColor (cream) so
               it stays visible on the always-dark frame nav. */}

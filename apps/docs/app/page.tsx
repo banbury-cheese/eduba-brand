@@ -95,7 +95,7 @@ const STACK = [
   "SHIKI",
 ];
 
-const PAD = "px-8 md:px-12 lg:px-16";
+const PAD = "px-5 sm:px-8 md:px-12 lg:px-16";
 
 export default function HomePage() {
   return (
@@ -110,8 +110,8 @@ export default function HomePage() {
         </div>
 
         <h1
-          className="font-sans font-bold leading-[0.92] tracking-[-0.02em]"
-          style={{ fontSize: "clamp(46px, 7vw, 112px)" }}
+          className="font-sans font-bold leading-[0.95] tracking-[-0.02em] sm:leading-[0.92]"
+          style={{ fontSize: "clamp(30px, 8vw, 112px)" }}
         >
           <SplitText
             text={"a brand-native\ncomponent library."}

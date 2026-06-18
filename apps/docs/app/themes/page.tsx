@@ -26,10 +26,10 @@ export default function ThemesPage() {
   const { isDark, toggle } = useDarkMode();
   return (
     <div className="flex flex-col">
-      <section className="border-b border-dashed border-[currentColor]/15 px-8 md:px-12 lg:px-16 pt-10 pb-12">
+      <section className="border-b border-dashed border-[currentColor]/15 px-5 sm:px-8 md:px-12 lg:px-16 pt-10 pb-12">
         <div className="flex items-baseline justify-between mb-8">
           <SectionLabel index="010" label="themes" />
-          <Mono className="opacity-50 text-[10px]">two palettes · one switch</Mono>
+          <Mono className="hidden opacity-50 text-[10px] sm:block">two palettes · one switch</Mono>
         </div>
         <h1
           className="font-sans font-bold tracking-[-0.02em] leading-[0.95] max-w-3xl"
@@ -53,10 +53,10 @@ export default function ThemesPage() {
         </div>
       </section>
 
-      <section className="px-8 md:px-12 lg:px-16 pt-10 pb-8">
+      <section className="px-5 sm:px-8 md:px-12 lg:px-16 pt-10 pb-8">
         <div className="flex items-baseline justify-between mb-6">
           <SectionLabel index="011" label="side by side" />
-          <Mono className="opacity-50 text-[10px]">same components · two palettes</Mono>
+          <Mono className="hidden opacity-50 text-[10px] sm:block">same components · two palettes</Mono>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           <ThemeShowcase variant="paper" />
@@ -64,10 +64,10 @@ export default function ThemesPage() {
         </div>
       </section>
 
-      <section className="px-8 md:px-12 lg:px-16 pt-8 pb-12">
+      <section className="px-5 sm:px-8 md:px-12 lg:px-16 pt-8 pb-12">
         <div className="flex items-baseline justify-between mb-6">
           <SectionLabel index="012" label="palette tokens" />
-          <Mono className="opacity-50 text-[10px]">active · {isDark ? "wine" : "paper"}</Mono>
+          <Mono className="hidden opacity-50 text-[10px] sm:block">active · {isDark ? "wine" : "paper"}</Mono>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {(
@@ -96,7 +96,7 @@ export default function ThemesPage() {
         </div>
       </section>
 
-      <footer className="border-t border-dashed border-[currentColor]/15 px-8 md:px-12 lg:px-16 py-6 flex items-center justify-between gap-4 flex-wrap">
+      <footer className="border-t border-dashed border-[currentColor]/15 px-5 sm:px-8 md:px-12 lg:px-16 py-6 flex items-center justify-between gap-4 flex-wrap">
         <Mono className="opacity-60">© eduba</Mono>
         <Link href="/docs">
           <Mono className="opacity-60 hover:opacity-100">browse components →</Mono>

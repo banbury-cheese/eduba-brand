@@ -230,7 +230,7 @@ import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 
 function Frame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="border border-border rounded-md p-10 flex items-center justify-center min-h-[240px] bg-card text-card-foreground relative overflow-hidden">
+    <div className="border border-border rounded-md p-5 sm:p-10 flex items-center justify-center min-h-[200px] sm:min-h-[240px] bg-card text-card-foreground relative overflow-hidden">
       {children}
     </div>
   );
