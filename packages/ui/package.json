@@ -5,7 +5,8 @@
   "license": "MIT",
   "sideEffects": ["**/*.css"],
   "type": "module",
-  "files": ["dist", "styles.css", "README.md"],
+  "files": ["dist", "src/styles", "styles.css", "README.md"],
+  "publishConfig": { "access": "public" },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
