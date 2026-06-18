@@ -1,7 +1,7 @@
 {
   "name": "@eduba/ui",
   "version": "0.0.1",
-  "description": "Eduba's brand-aligned, shadcn-compatible React component library.",
+  "description": "Eduba's brand-aligned React component library, built on Radix + Tailwind v4.",
   "license": "MIT",
   "sideEffects": ["**/*.css"],
   "type": "module",

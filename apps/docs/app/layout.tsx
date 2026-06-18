@@ -6,7 +6,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "@eduba/ui — eduba's component library",
   description:
-    "A versatile, brand-aligned, shadcn-compatible React component library powering eduba.io.",
+    "A versatile, brand-aligned React component library powering eduba.io.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

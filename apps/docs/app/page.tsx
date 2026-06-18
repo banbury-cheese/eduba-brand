@@ -247,32 +247,38 @@ export default function HomePage() {
       <section className={`${PAD} pt-6 pb-12`}>
         <div className="mb-8 flex items-baseline justify-between">
           <SectionLabel index="002" label="install" />
-          <Mono className="text-[10px] opacity-50">two ways in</Mono>
+          <Mono className="text-[10px] opacity-50">one import</Mono>
         </div>
-        <div className="grid gap-5 md:grid-cols-2">
-          <InstallCard
-            id="via npm"
-            tag="recommended"
-            title="install the package"
-            blurb="Ship-fast. Updates flow through your lockfile."
-            file="terminal"
-            code={`pnpm add @eduba/ui
+        <div className="grid items-start gap-8 md:grid-cols-12">
+          <div className="md:col-span-7">
+            <InstallCard
+              id="via npm"
+              title="install the package"
+              blurb="Add the package, import the stylesheet once, wrap your app in the theme provider. Updates flow through your lockfile."
+              file="terminal"
+              code={`pnpm add @eduba/ui
 
 # then, in your global stylesheet
 @import "tailwindcss";
 @import "@eduba/ui/styles.css";`}
-          />
-          <InstallCard
-            id="via shadcn cli"
-            tag="own the code"
-            title="copy components in"
-            blurb="shadcn-compatible registry. Components land in your repo to edit freely."
-            file="terminal"
-            code={`npx shadcn@latest add \\
-  https://ui.eduba.io/r/button
-
-# repeat per component`}
-          />
+            />
+          </div>
+          <dl className="flex flex-col gap-3 md:col-span-5 md:pl-2">
+            {[
+              ["peers", "react · react-dom"],
+              ["chart", "+ recharts"],
+              ["data-table", "+ @tanstack/react-table"],
+              ["fonts", "self-host diatype"],
+            ].map(([k, v]) => (
+              <div
+                key={k}
+                className="flex items-baseline justify-between gap-4 border-b border-dashed border-[currentColor]/15 pb-2.5"
+              >
+                <Mono className="text-[10px] font-semibold opacity-55">{k}</Mono>
+                <span className="text-right font-mono text-[11px] tracking-[0.02em] opacity-80">{v}</span>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
@@ -329,7 +335,7 @@ function InstallCard({
   code,
 }: {
   id: string;
-  tag: string;
+  tag?: string;
   title: string;
   blurb: string;
   file: string;
@@ -340,9 +346,11 @@ function InstallCard({
       <CardHeader dashedDivider>
         <div className="flex items-center justify-between">
           <CardId>{id}</CardId>
-          <Mono className="rounded-sm border border-[currentColor]/20 px-1.5 py-0.5 text-[9px] opacity-60">
-            {tag}
-          </Mono>
+          {tag ? (
+            <Mono className="rounded-sm border border-[currentColor]/20 px-1.5 py-0.5 text-[9px] opacity-60">
+              {tag}
+            </Mono>
+          ) : null}
         </div>
         <CardTitle>{title}</CardTitle>
       </CardHeader>

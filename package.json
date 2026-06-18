@@ -15,9 +15,7 @@
     "typecheck": "turbo run typecheck",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "biome format --write .",
-    "check": "biome check --write .",
-    "registry:stubs": "node scripts/generate-registry-stubs.mjs",
-    "registry:build": "node scripts/build-registry.mjs"
+    "check": "biome check --write ."
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

@@ -1,6 +1,6 @@
 # @eduba/ui
 
-Eduba's brand-aligned, shadcn-compatible React component library.
+Eduba's brand-aligned React component library, built on Radix + Tailwind v4.
 
 ## Install
 
@@ -53,14 +53,6 @@ export default function Page() {
 }
 ```
 
-## shadcn registry
-
-You can also copy components into your codebase via the shadcn CLI:
-
-```bash
-npx shadcn@latest add https://ui.eduba.io/r/button
-```
-
 ## Themes
 
-Five built-in variants: `rose`, `mediumBrown`, `paper`, `skin`, `wine`. Switch via `<ThemeProvider theme="…">` or `<html data-theme="…">`.
+Two built-in themes: `paper` (light) and `wine` (dark). Switch via `<ThemeProvider defaultTheme="…">`, the `useTheme()` / `useDarkMode()` hooks, or `<html data-theme="…">`.
