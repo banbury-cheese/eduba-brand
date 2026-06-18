@@ -7,8 +7,16 @@
  * eliminating the dark↔light flash on load. Pass the same `storageKey` you
  * give <ThemeProvider> (default "eduba-theme").
  *
- *   <script dangerouslySetInnerHTML={{ __html: themeInitScript() }} />
+ * `defaultTheme` is the fallback for a visitor with no stored choice: pass
+ * "paper" or "wine" to pin it, or omit to follow the OS `prefers-color-scheme`.
+ * Keep it in sync with the `defaultTheme` you pass <ThemeProvider>.
+ *
+ *   <script dangerouslySetInnerHTML={{ __html: themeInitScript("eduba-theme", "paper") }} />
  */
-export function themeInitScript(storageKey = "eduba-theme"): string {
-  return `(function(){try{var k=${JSON.stringify(storageKey)},t=localStorage.getItem(k);if(t!=="paper"&&t!=="wine"){t=window.matchMedia("(prefers-color-scheme: dark)").matches?"wine":"paper";}var e=document.documentElement;e.setAttribute("data-theme",t);e.style.colorScheme=t==="wine"?"dark":"light";}catch(_){}})();`;
+export function themeInitScript(storageKey = "eduba-theme", defaultTheme?: "paper" | "wine"): string {
+  const fallback =
+    defaultTheme === "paper" || defaultTheme === "wine"
+      ? JSON.stringify(defaultTheme)
+      : `window.matchMedia("(prefers-color-scheme: dark)").matches?"wine":"paper"`;
+  return `(function(){try{var k=${JSON.stringify(storageKey)},t=localStorage.getItem(k);if(t!=="paper"&&t!=="wine"){t=${fallback};}var e=document.documentElement;e.setAttribute("data-theme",t);e.style.colorScheme=t==="wine"?"dark":"light";}catch(_){}})();`;
 }

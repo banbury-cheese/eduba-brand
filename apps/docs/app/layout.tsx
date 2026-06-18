@@ -13,10 +13,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        {/* Sets data-theme before first paint — kills the dark→light flash. */}
+        {/* Sets data-theme before first paint — kills the flash. "paper" is the
+            default for visitors with no stored choice (keep in sync with ThemeProvider). */}
         {/* biome-ignore lint/security/noDangerouslySetInnerHtml: trusted, static, self-authored init script */}
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript() }} />
-        <ThemeProvider>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript("eduba-theme", "paper") }} />
+        <ThemeProvider defaultTheme="paper">
           <TooltipProvider>
             <div className="eb-frame">
               <TopNav />
