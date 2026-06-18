@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "direction",
+  "type": "registry:ui",
+  "description": "Eduba component — direction.",
+  "dependencies": ["@radix-ui/react-direction", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/direction.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/direction.tsx"
+    }
+  ]
+}

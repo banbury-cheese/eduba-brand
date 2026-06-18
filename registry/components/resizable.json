@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "resizable",
+  "type": "registry:ui",
+  "description": "Eduba component — resizable.",
+  "dependencies": ["clsx", "react-resizable-panels", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/resizable.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/resizable.tsx"
+    }
+  ]
+}

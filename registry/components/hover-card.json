@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hover-card",
+  "type": "registry:ui",
+  "description": "Eduba component — hover-card.",
+  "dependencies": ["@radix-ui/react-hover-card", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/hover-card.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/hover-card.tsx"
+    }
+  ]
+}

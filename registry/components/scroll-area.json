@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-area",
+  "type": "registry:ui",
+  "description": "Eduba component — scroll-area.",
+  "dependencies": ["@radix-ui/react-scroll-area", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/scroll-area.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/scroll-area.tsx"
+    }
+  ]
+}

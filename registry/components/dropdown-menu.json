@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dropdown-menu",
+  "type": "registry:ui",
+  "description": "Eduba component — dropdown-menu.",
+  "dependencies": ["@radix-ui/react-dropdown-menu", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/dropdown-menu.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/dropdown-menu.tsx"
+    }
+  ]
+}

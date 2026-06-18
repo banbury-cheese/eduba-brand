@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table",
+  "type": "registry:ui",
+  "description": "Eduba component — table.",
+  "dependencies": ["clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/table.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/table.tsx"
+    }
+  ]
+}

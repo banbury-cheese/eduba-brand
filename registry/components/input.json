@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input",
+  "type": "registry:ui",
+  "description": "Eduba component — input.",
+  "dependencies": ["clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/input.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/input.tsx"
+    }
+  ]
+}

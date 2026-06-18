@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashed-frame",
+  "type": "registry:ui",
+  "description": "Eduba primitive — dashed-frame.",
+  "dependencies": ["clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/dashed-frame.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/primitives/dashed-frame.tsx"
+    }
+  ]
+}

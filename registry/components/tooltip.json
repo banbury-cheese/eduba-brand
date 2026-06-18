@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "type": "registry:ui",
+  "description": "Eduba component — tooltip.",
+  "dependencies": ["@radix-ui/react-tooltip", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/tooltip.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/tooltip.tsx"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "menubar",
+  "type": "registry:ui",
+  "description": "Eduba component — menubar.",
+  "dependencies": ["@radix-ui/react-menubar", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/menubar.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/menubar.tsx"
+    }
+  ]
+}

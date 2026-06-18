@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scramble-text",
+  "type": "registry:ui",
+  "description": "Eduba primitive — scramble-text.",
+  "dependencies": ["clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/scramble-text.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/primitives/scramble-text.tsx"
+    }
+  ]
+}

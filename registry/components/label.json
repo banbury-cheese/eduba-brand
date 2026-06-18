@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "label",
+  "type": "registry:ui",
+  "description": "Eduba component — label.",
+  "dependencies": ["@radix-ui/react-label", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/label.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/label.tsx"
+    }
+  ]
+}

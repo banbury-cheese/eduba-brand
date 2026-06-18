@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "context-menu",
+  "type": "registry:ui",
+  "description": "Eduba component — context-menu.",
+  "dependencies": ["@radix-ui/react-context-menu", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/context-menu.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/context-menu.tsx"
+    }
+  ]
+}

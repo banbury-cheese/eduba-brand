@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-table",
+  "type": "registry:ui",
+  "description": "Eduba component — data-table.",
+  "dependencies": ["@tanstack/react-table", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/data-table.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/data-table.tsx"
+    }
+  ]
+}

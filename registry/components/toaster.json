@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toaster",
+  "type": "registry:ui",
+  "description": "Eduba component — toaster.",
+  "dependencies": ["clsx", "sonner", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/toaster.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/toaster.tsx"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "popover",
+  "type": "registry:ui",
+  "description": "Eduba component — popover.",
+  "dependencies": ["@radix-ui/react-popover", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/popover.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/popover.tsx"
+    }
+  ]
+}

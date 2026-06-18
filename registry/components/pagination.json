@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pagination",
+  "type": "registry:ui",
+  "description": "Eduba component — pagination.",
+  "dependencies": ["clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/pagination.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/pagination.tsx"
+    }
+  ]
+}

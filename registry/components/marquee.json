@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "marquee",
+  "type": "registry:ui",
+  "description": "Eduba primitive — marquee.",
+  "dependencies": ["clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/marquee.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/primitives/marquee.tsx"
+    }
+  ]
+}

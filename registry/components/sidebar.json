@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sidebar",
+  "type": "registry:ui",
+  "description": "Eduba component — sidebar.",
+  "dependencies": ["@radix-ui/react-slot", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/sidebar.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/sidebar.tsx"
+    }
+  ]
+}

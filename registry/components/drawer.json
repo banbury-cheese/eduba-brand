@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drawer",
+  "type": "registry:ui",
+  "description": "Eduba component — drawer.",
+  "dependencies": ["clsx", "tailwind-merge", "vaul"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/drawer.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/drawer.tsx"
+    }
+  ]
+}

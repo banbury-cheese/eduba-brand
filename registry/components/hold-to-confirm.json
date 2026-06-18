@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hold-to-confirm",
+  "type": "registry:ui",
+  "description": "Eduba primitive — hold-to-confirm.",
+  "dependencies": ["@radix-ui/react-slot", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/hold-to-confirm.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/primitives/hold-to-confirm.tsx"
+    }
+  ]
+}

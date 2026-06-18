@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog",
+  "type": "registry:ui",
+  "description": "Modal anchored to viewport center, 300ms crossfade. Never animates from scale(0) \u2014 starts at 0.96.",
+  "dependencies": ["@radix-ui/react-dialog", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/dialog.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/dialog.tsx"
+    }
+  ]
+}

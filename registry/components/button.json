@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button",
+  "type": "registry:ui",
+  "description": "Triggers an action. Default, secondary, outline, ghost, link, destructive variants. scale(0.97) press feedback, hover gated on hover-capable devices.",
+  "dependencies": ["@radix-ui/react-slot", "class-variance-authority", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/button.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/button.tsx"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch",
+  "type": "registry:ui",
+  "description": "Eduba component — switch.",
+  "dependencies": ["@radix-ui/react-switch", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/switch.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/switch.tsx"
+    }
+  ]
+}

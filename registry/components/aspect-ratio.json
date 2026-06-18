@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "aspect-ratio",
+  "type": "registry:ui",
+  "description": "Eduba component — aspect-ratio.",
+  "dependencies": ["@radix-ui/react-aspect-ratio", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/aspect-ratio.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/aspect-ratio.tsx"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "collapsible",
+  "type": "registry:ui",
+  "description": "Eduba component — collapsible.",
+  "dependencies": ["@radix-ui/react-collapsible", "clsx", "tailwind-merge"],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "ui/collapsible.tsx",
+      "type": "registry:ui",
+      "source": "packages/ui/src/components/collapsible.tsx"
+    }
+  ]
+}
