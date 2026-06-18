@@ -1,0 +1,190 @@
+/**
+ * Single source of truth for the docs catalog — the sidebar (docs/layout.tsx)
+ * and every per-component detail page (docs/[slug]/page.tsx) read from here, so
+ * the two never drift. Live previews are keyed by the same slugs in
+ * component-preview.tsx.
+ */
+
+export interface ComponentMeta {
+  kind: "component" | "primitive";
+  description: string;
+}
+
+export const COMPONENTS: string[] = [
+  "typography",
+  "accordion",
+  "alert",
+  "alert-dialog",
+  "aspect-ratio",
+  "avatar",
+  "badge",
+  "breadcrumb",
+  "button",
+  "button-group",
+  "calendar",
+  "card",
+  "carousel",
+  "chart",
+  "checkbox",
+  "collapsible",
+  "combobox",
+  "command",
+  "context-menu",
+  "data-table",
+  "date-picker",
+  "dialog",
+  "direction",
+  "drawer",
+  "dropdown-menu",
+  "empty",
+  "field",
+  "hover-card",
+  "input",
+  "input-group",
+  "input-otp",
+  "item",
+  "kbd",
+  "label",
+  "menubar",
+  "native-select",
+  "navigation-menu",
+  "pagination",
+  "popover",
+  "progress",
+  "radio-group",
+  "resizable",
+  "scroll-area",
+  "select",
+  "separator",
+  "sheet",
+  "sidebar",
+  "skeleton",
+  "slider",
+  "switch",
+  "table",
+  "tabs",
+  "textarea",
+  "toaster",
+  "toggle",
+  "toggle-group",
+  "tooltip",
+];
+
+export const PRIMITIVES: string[] = [
+  "film-grain",
+  "scramble-text",
+  "split-text",
+  "number-ticker",
+  "underline-draw",
+  "reveal",
+  "stagger",
+  "magnetic",
+  "hover-parallax",
+  "dashed-frame",
+  "marquee",
+  "hold-to-confirm",
+  "image-reveal",
+];
+
+const COMPONENT_DESCRIPTIONS: Record<string, string> = {
+  typography:
+    "The full type scale — display headings, lead, body, mono section labels, and inline code.",
+  accordion:
+    "Vertically stacked sections that expand and collapse. FAQ-ready with a plus/minus icon variant.",
+  alert:
+    "Inline callout for status messages — default, info, success, warning, and destructive tones.",
+  "alert-dialog": "A modal that interrupts to confirm a consequential or destructive action.",
+  "aspect-ratio": "Locks content to a fixed width-to-height ratio.",
+  avatar: "User or brand thumbnail with a graceful initials fallback.",
+  badge: "Small monospace tag for status, counts, or labels.",
+  breadcrumb: "Hierarchical trail showing where the current page sits.",
+  button:
+    "Triggers an action. Default, secondary, outline, ghost, link, destructive, and glow variants.",
+  "button-group": "Segments related buttons into a single connected control.",
+  calendar: "Month grid for selecting a date or range, contrast-balanced for light and dark.",
+  card: "Composable container with header, content, and footer — the studio's editorial card.",
+  carousel: "Swipeable, keyboard-navigable slides powered by Embla.",
+  chart: "Recharts wrapper themed to the eduba palette, with a styled tooltip and legend.",
+  checkbox: "Binary toggle for a single option, with an indeterminate state.",
+  collapsible: "Show-and-hide region with a smooth measured-height transition.",
+  combobox: "Autocomplete control pairing a popover with command-style search.",
+  command: "Command palette — a fast, searchable list of actions with groups and shortcuts.",
+  "context-menu": "Right-click menu of contextual actions.",
+  "data-table": "TanStack-powered table with sorting, global filter, and pagination.",
+  "date-picker": "Calendar in a popover for picking a single date.",
+  dialog: "Centered modal overlay with a 300ms crossfade and scale-from-0.96 entrance.",
+  direction: "Provider that flips the component tree between LTR and RTL.",
+  drawer: "Vaul-powered bottom sheet with drag-to-dismiss.",
+  "dropdown-menu": "Menu of actions from a trigger, with labels, separators, and shortcuts.",
+  empty: "Placeholder state for empty lists — media, copy, and an action.",
+  field: "Form-field wrapper pairing label, control, and description with consistent spacing.",
+  "hover-card": "Rich preview card revealed on hover — a tooltip's bigger sibling.",
+  input: "Single-line text field with a monospace placeholder.",
+  "input-group": "Compose an input with leading and trailing addons.",
+  "input-otp": "Segmented one-time-code input with paste support.",
+  item: "Media + content + actions row for lists, menus, and settings.",
+  kbd: "Renders keyboard keys and shortcut combinations.",
+  label: "Accessible caption bound to a form control.",
+  menubar: "Desktop-style horizontal menu bar with nested menus.",
+  "native-select": "Styled native select with a built-in chevron — zero JS, full accessibility.",
+  "navigation-menu": "Top-level site navigation with rich dropdown panels.",
+  pagination: "Page-by-page navigation for long result sets.",
+  popover: "Origin-aware floating panel anchored to its trigger.",
+  progress: "Horizontal bar showing completion toward a goal.",
+  "radio-group": "Pick exactly one option from a set.",
+  resizable: "Draggable split panels for resizable layouts.",
+  "scroll-area": "Custom scroll container with a slim themed scrollbar.",
+  select: "Dropdown for choosing one option — groups, labels, and a checked indicator.",
+  separator: "Solid or dashed divider between sections.",
+  sheet: "Side panel that slides in from an edge with the drawer easing.",
+  sidebar: "Collapsible app navigation rail with header, groups, and footer.",
+  skeleton: "Shimmering placeholder shown while content loads.",
+  slider: "Drag a handle to pick a value along a track.",
+  switch: "On/off toggle for an immediate setting.",
+  table: "Editorial data table — mono headers, pink rules, and a warm row hover.",
+  tabs: "Switch between views with a sliding underline indicator.",
+  textarea: "Multi-line text field for longer input.",
+  toaster: "Sonner-powered toasts — default, success, and error.",
+  toggle: "Two-state button that stays pressed.",
+  "toggle-group": "A set of toggles for single or multiple selection.",
+  tooltip: "Short label revealed on hover or focus, with skip-delay enabled.",
+};
+
+const PRIMITIVE_DESCRIPTIONS: Record<string, string> = {
+  "film-grain": "Animated canvas grain overlay for warmth and texture across the page.",
+  "scramble-text": "Char-scramble reveal — eduba's signature text effect.",
+  "split-text": "Staggered fade-up reveal by character, word, or line.",
+  "number-ticker": "Counts a number up from zero on mount or scroll into view.",
+  "underline-draw": "Underline that draws in from the left on hover.",
+  reveal: "Fades and lifts content into view on scroll.",
+  stagger: "Reveals a group of children one after another.",
+  magnetic: "Element that drifts toward the cursor on hover.",
+  "hover-parallax": "Tilts toward the cursor for a subtle 3D parallax feel.",
+  "dashed-frame": "SVG dashed perimeter with configurable thickness and gaps.",
+  marquee: "Infinite horizontal scroll strip, pausable on hover.",
+  "hold-to-confirm": "Press-and-hold confirmation with a clip-path progress fill.",
+  "image-reveal": "Clip-path wipe that uncovers media in a chosen direction.",
+};
+
+export const CATALOG: Record<string, ComponentMeta> = {
+  ...Object.fromEntries(
+    COMPONENTS.map((slug) => [
+      slug,
+      {
+        kind: "component",
+        description: COMPONENT_DESCRIPTIONS[slug] ?? "A component in the eduba/ui library.",
+      },
+    ]),
+  ),
+  ...Object.fromEntries(
+    PRIMITIVES.map((slug) => [
+      slug,
+      {
+        kind: "primitive",
+        description: PRIMITIVE_DESCRIPTIONS[slug] ?? "A motion primitive in the eduba/ui library.",
+      },
+    ]),
+  ),
+};
+
+export const ALL_SLUGS: string[] = [...COMPONENTS, ...PRIMITIVES];

@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "@eduba/ui/styles.css";
+
+/* Pick up @eduba/ui sources so Tailwind v4 sees the utility classes used inside the library. */
+@source "../../../packages/ui/src/**/*.{ts,tsx}";
+
+/* ===== eduba.io frame pattern ============================================
+   Fixed dark-brown shell with an inner white "paper" surface that scrolls.
+   Mirrors the .frame > .contentWrapper structure from eduba.io/src/app. */
+.eb-frame {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding: calc(8px + env(safe-area-inset-top)) calc(8px + env(safe-area-inset-right))
+    calc(8px + env(safe-area-inset-bottom)) calc(8px + env(safe-area-inset-left));
+  background: var(--eb-dark-brown);
+  height: 100svh;
+  gap: 8px;
+}
+.eb-frame > .eb-frame-paper {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  border-radius: 6px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color 320ms var(--ease-in-out), color 320ms var(--ease-in-out);
+}
+.eb-frame-topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 calc(8px + env(safe-area-inset-right)) 0 calc(8px + env(safe-area-inset-left));
+  color: var(--eb-cream);
+}
+.eb-frame-topnav a,
+.eb-frame-topnav button {
+  color: inherit;
+}
+
+/* Local fonts — Diatype from the brand repo (served from /public/fonts/). */
+@font-face {
+  font-family: "Diatype";
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/diatype-bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Diatype";
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/diatype-med.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Diatype";
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/diatype-reg.woff2") format("woff2");
+}
+
+html {
+  color-scheme: light;
+}
