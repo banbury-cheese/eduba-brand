@@ -68,7 +68,7 @@ const PHASES: {
 ];
 
 const STATS: { label: string; value: number }[] = [
-  { label: "components", value: 66 },
+  { label: "components", value: 73 },
   { label: "primitives", value: 13 },
   { label: "themes", value: 2 },
   { label: "phases", value: 6 },

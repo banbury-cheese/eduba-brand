@@ -20,8 +20,11 @@ import {
   AspectRatio,
   Avatar,
   AvatarFallback,
+  AvatarGroup,
   AvatarImage,
   Badge,
+  Banner,
+  BannerTitle,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -50,6 +53,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
   Checkbox,
+  Chip,
   CodeBlock,
   Collapsible,
   CollapsibleContent,
@@ -175,6 +179,7 @@ import {
   Progress,
   RadioGroup,
   RadioGroupItem,
+  Rating,
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
@@ -216,6 +221,7 @@ import {
   Stagger,
   StaggerItem,
   Stat,
+  Stepper,
   Switch,
   Table,
   TableBody,
@@ -230,12 +236,19 @@ import {
   TabsTrigger,
   TagInput,
   Textarea,
+  Timeline,
+  TimelineDescription,
+  TimelineItem,
+  TimelineTime,
+  TimelineTitle,
   Toggle,
   ToggleGroup,
   ToggleGroupItem,
   Tooltip,
   TooltipContent,
   TooltipTrigger,
+  type TreeNode,
+  TreeView,
   UnderlineDraw,
   navigationMenuTriggerStyle,
   toast,
@@ -566,6 +579,109 @@ function FileUploadDemo() {
 function DateRangePickerDemo() {
   const [range, setRange] = React.useState<DateRange | undefined>();
   return <DateRangePicker className="w-72" value={range} onValueChange={setRange} />;
+}
+
+/* ----- stepper demo ----- */
+const STEPPER_STEPS = [
+  { label: "brief", description: "scope & goals" },
+  { label: "design", description: "explore" },
+  { label: "build", description: "ship it" },
+];
+
+function StepperDemo() {
+  const [step, setStep] = React.useState(1);
+  return (
+    <div className="flex w-full max-w-md flex-col gap-7">
+      <Stepper steps={STEPPER_STEPS} value={step} onValueChange={setStep} />
+      <div className="flex justify-center gap-2">
+        <Button
+          variant="outline"
+          size="sm"
+          disabled={step === 0}
+          onClick={() => setStep((s) => s - 1)}
+        >
+          prev
+        </Button>
+        <Button
+          size="sm"
+          disabled={step === STEPPER_STEPS.length - 1}
+          onClick={() => setStep((s) => s + 1)}
+        >
+          next
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+/* ----- rating demo ----- */
+function RatingDemo() {
+  const [value, setValue] = React.useState(3);
+  return <Rating value={value} onValueChange={setValue} size="lg" />;
+}
+
+/* ----- chip demo ----- */
+const CHIP_FILTERS = ["branding", "web", "product", "editorial", "motion"];
+
+function ChipDemo() {
+  const [active, setActive] = React.useState<string[]>(["web", "product"]);
+  return (
+    <div className="flex max-w-md flex-wrap justify-center gap-2">
+      {CHIP_FILTERS.map((f) => {
+        const on = active.includes(f);
+        return (
+          <Chip
+            key={f}
+            selected={on}
+            onClick={() => setActive((a) => (on ? a.filter((x) => x !== f) : [...a, f]))}
+          >
+            {f}
+          </Chip>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ----- tree-view demo ----- */
+const TREE_DATA: TreeNode[] = [
+  {
+    id: "app",
+    label: "app",
+    defaultExpanded: true,
+    children: [
+      { id: "layout", label: "layout.tsx" },
+      { id: "page", label: "page.tsx" },
+      {
+        id: "docs",
+        label: "docs",
+        children: [
+          { id: "docs-layout", label: "layout.tsx" },
+          { id: "docs-page", label: "page.tsx" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "components",
+    label: "components",
+    children: [
+      { id: "catalog", label: "catalog.ts" },
+      { id: "preview", label: "component-preview.tsx" },
+    ],
+  },
+];
+
+function TreeViewDemo() {
+  const [sel, setSel] = React.useState("page");
+  return (
+    <TreeView
+      className="max-w-xs"
+      data={TREE_DATA}
+      selectedId={sel}
+      onSelect={(id) => setSel(id)}
+    />
+  );
 }
 
 const PREVIEWS: Record<string, React.ReactNode> = {
@@ -1585,6 +1701,69 @@ const PREVIEWS: Record<string, React.ReactNode> = {
       <DescriptionItem term="themes">paper · wine</DescriptionItem>
       <DescriptionItem term="license">mit</DescriptionItem>
     </DescriptionList>
+  ),
+
+  // ----- tier 2: product patterns -----
+  stepper: <StepperDemo />,
+  rating: <RatingDemo />,
+  chip: <ChipDemo />,
+  "tree-view": (
+    <div className="w-full max-w-xs rounded-md border border-border bg-background p-2">
+      <TreeViewDemo />
+    </div>
+  ),
+  "avatar-group": (
+    <AvatarGroup max={4}>
+      <Avatar>
+        <AvatarImage src="https://i.pravatar.cc/64?img=12" alt="" />
+        <AvatarFallback>JD</AvatarFallback>
+      </Avatar>
+      <Avatar>
+        <AvatarFallback>EB</AvatarFallback>
+      </Avatar>
+      <Avatar>
+        <AvatarImage src="https://i.pravatar.cc/64?img=32" alt="" />
+        <AvatarFallback>AR</AvatarFallback>
+      </Avatar>
+      <Avatar>
+        <AvatarFallback>MK</AvatarFallback>
+      </Avatar>
+      <Avatar>
+        <AvatarFallback>ST</AvatarFallback>
+      </Avatar>
+      <Avatar>
+        <AvatarFallback>LW</AvatarFallback>
+      </Avatar>
+    </AvatarGroup>
+  ),
+  timeline: (
+    <Timeline className="w-full max-w-sm">
+      <TimelineItem active>
+        <TimelineTime>jun 2026</TimelineTime>
+        <TimelineTitle>v0.1 — public docs</TimelineTitle>
+        <TimelineDescription>66 components, two themes, live on Vercel.</TimelineDescription>
+      </TimelineItem>
+      <TimelineItem>
+        <TimelineTime>may 2026</TimelineTime>
+        <TimelineTitle>motion primitives</TimelineTitle>
+        <TimelineDescription>Scramble, SplitText, Reveal — the brand layer.</TimelineDescription>
+      </TimelineItem>
+      <TimelineItem last>
+        <TimelineTime>apr 2026</TimelineTime>
+        <TimelineTitle>foundations</TimelineTitle>
+        <TimelineDescription>Tokens, type scale, and the Radix base.</TimelineDescription>
+      </TimelineItem>
+    </Timeline>
+  ),
+  banner: (
+    <div className="w-full max-w-2xl overflow-hidden rounded-md">
+      <Banner variant="info" dismissible>
+        <BannerTitle>new</BannerTitle>
+        <span>
+          Tier-2 components just shipped — <a href="/docs">browse them →</a>
+        </span>
+      </Banner>
+    </div>
   ),
 };
 
