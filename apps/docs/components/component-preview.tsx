@@ -50,6 +50,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
   Checkbox,
+  CodeBlock,
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
@@ -70,6 +71,10 @@ import {
   DashedFrame,
   DataTable,
   DatePicker,
+  type DateRange,
+  DateRangePicker,
+  DescriptionItem,
+  DescriptionList,
   Dialog,
   DialogContent,
   DialogDescription,
@@ -99,6 +104,14 @@ import {
   Field,
   FieldDescription,
   FieldLabel,
+  FileUpload,
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
   H1,
   H2,
   H3,
@@ -138,6 +151,7 @@ import {
   MenubarShortcut,
   MenubarTrigger,
   Mono,
+  MultiSelect,
   Muted,
   NativeSelect,
   NavigationMenu,
@@ -201,6 +215,7 @@ import {
   SplitText,
   Stagger,
   StaggerItem,
+  Stat,
   Switch,
   Table,
   TableBody,
@@ -213,6 +228,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
+  TagInput,
   Textarea,
   Toggle,
   ToggleGroup,
@@ -226,6 +242,7 @@ import {
 } from "@eduba/ui";
 import type { ColumnDef } from "@tanstack/react-table";
 import * as React from "react";
+import { useForm } from "react-hook-form";
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 
 function Frame({ children }: { children: React.ReactNode }) {
@@ -464,6 +481,91 @@ function SidebarDemo() {
       </div>
     </SidebarProvider>
   );
+}
+
+/* ----- form demo ----- */
+function FormDemo() {
+  const form = useForm<{ email: string }>({ defaultValues: { email: "" }, mode: "onTouched" });
+  return (
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(() =>
+          toast.success("subscribed", { description: "check your inbox" }),
+        )}
+        className="flex w-full max-w-sm flex-col gap-4"
+      >
+        <FormField
+          control={form.control}
+          name="email"
+          rules={{
+            required: "email is required",
+            pattern: { value: /.+@.+\..+/, message: "enter a valid email" },
+          }}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>email</FormLabel>
+              <FormControl>
+                <Input type="email" placeholder="hello@eduba.io" {...field} />
+              </FormControl>
+              <FormDescription>We&apos;ll never share this.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit" className="self-start">
+          subscribe
+        </Button>
+      </form>
+    </Form>
+  );
+}
+
+/* ----- multi-select demo ----- */
+const TYPEFACE_OPTIONS = [
+  { value: "diatype", label: "Diatype" },
+  { value: "plex", label: "IBM Plex Mono" },
+  { value: "grotesk", label: "Space Grotesk" },
+  { value: "editorial", label: "Editorial New" },
+  { value: "system", label: "System UI" },
+];
+
+function MultiSelectDemo() {
+  const [value, setValue] = React.useState<string[]>(["diatype", "plex"]);
+  return (
+    <MultiSelect
+      className="w-72"
+      options={TYPEFACE_OPTIONS}
+      value={value}
+      onValueChange={setValue}
+      placeholder="pick typefaces"
+    />
+  );
+}
+
+/* ----- tag-input demo ----- */
+function TagInputDemo() {
+  const [tags, setTags] = React.useState<string[]>(["brand", "editorial"]);
+  return <TagInput className="w-72" value={tags} onValueChange={setTags} placeholder="add a tag" />;
+}
+
+/* ----- file-upload demo ----- */
+function FileUploadDemo() {
+  const [files, setFiles] = React.useState<File[]>([]);
+  return (
+    <FileUpload
+      className="w-full max-w-md"
+      value={files}
+      onValueChange={setFiles}
+      accept="image/*,.pdf"
+      maxSize={5 * 1024 * 1024}
+    />
+  );
+}
+
+/* ----- date-range-picker demo ----- */
+function DateRangePickerDemo() {
+  const [range, setRange] = React.useState<DateRange | undefined>();
+  return <DateRangePicker className="w-72" value={range} onValueChange={setRange} />;
 }
 
 const PREVIEWS: Record<string, React.ReactNode> = {
@@ -1449,6 +1551,40 @@ const PREVIEWS: Record<string, React.ReactNode> = {
         </div>
       </ImageReveal>
     </ReplayFrame>
+  ),
+
+  // ----- added components -----
+  form: <FormDemo />,
+  "multi-select": <MultiSelectDemo />,
+  "tag-input": <TagInputDemo />,
+  "file-upload": <FileUploadDemo />,
+  "date-range-picker": <DateRangePickerDemo />,
+  "code-block": (
+    <CodeBlock
+      className="w-full max-w-md"
+      filename="install.sh"
+      code={`pnpm add @eduba/ui
+
+# then, in your global stylesheet
+@import "tailwindcss";
+@import "@eduba/ui/styles.css";`}
+    />
+  ),
+  stat: (
+    <div className="grid w-full max-w-md grid-cols-2 gap-x-8 gap-y-6">
+      <Stat label="components" value="66" delta="+8" direction="up" hint="this release" />
+      <Stat label="bundle" value="0" delta="deps" direction="neutral" hint="tree-shaken" />
+      <Stat label="themes" value="2" hint="paper · wine" />
+      <Stat label="a11y score" value="100" delta="+4" direction="up" />
+    </div>
+  ),
+  "description-list": (
+    <DescriptionList className="w-full max-w-sm">
+      <DescriptionItem term="stack">radix · tailwind v4</DescriptionItem>
+      <DescriptionItem term="type">diatype · plex mono</DescriptionItem>
+      <DescriptionItem term="themes">paper · wine</DescriptionItem>
+      <DescriptionItem term="license">mit</DescriptionItem>
+    </DescriptionList>
   ),
 };
 

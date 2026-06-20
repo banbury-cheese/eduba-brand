@@ -12,5 +12,5 @@ export default defineConfig({
   bundle: false,
   sourcemap: true,
   clean: true,
-  external: ["react", "react-dom", "gsap", "recharts", "@tanstack/react-table"],
+  external: ["react", "react-dom", "gsap", "recharts", "@tanstack/react-table", "react-hook-form"],
 });

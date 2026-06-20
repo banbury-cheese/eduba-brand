@@ -68,7 +68,7 @@ const PHASES: {
 ];
 
 const STATS: { label: string; value: number }[] = [
-  { label: "components", value: 71 },
+  { label: "components", value: 66 },
   { label: "primitives", value: 13 },
   { label: "themes", value: 2 },
   { label: "phases", value: 6 },
@@ -275,7 +275,9 @@ export default function HomePage() {
                 className="flex items-baseline justify-between gap-4 border-b border-dashed border-[currentColor]/15 pb-2.5"
               >
                 <Mono className="text-[10px] font-semibold opacity-55">{k}</Mono>
-                <span className="text-right font-mono text-[11px] tracking-[0.02em] opacity-80">{v}</span>
+                <span className="text-right font-mono text-[11px] tracking-[0.02em] opacity-80">
+                  {v}
+                </span>
               </div>
             ))}
           </dl>
