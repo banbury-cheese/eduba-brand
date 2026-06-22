@@ -106,7 +106,7 @@ export default function HomePage() {
       >
         <div className="mb-8 flex items-baseline justify-between md:mb-10">
           <SectionLabel index="000" label="overview" />
-          <Mono className="hidden text-[10px] opacity-50 sm:block">v0.0.2 · brand-native</Mono>
+          <Mono className="hidden text-[10px] opacity-50 sm:block">v0.0.3 · brand-native</Mono>
         </div>
 
         <h1

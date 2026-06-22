@@ -481,7 +481,7 @@ function SidebarDemo() {
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>
-          <Mono className="text-[10px] text-muted-foreground">v0.0.2 · paper</Mono>
+          <Mono className="text-[10px] text-muted-foreground">v0.0.3 · paper</Mono>
         </SidebarFooter>
       </Sidebar>
       <div className="flex min-w-0 flex-1 flex-col gap-2 p-5">
@@ -589,7 +589,10 @@ const STEPPER_STEPS = [
 ];
 
 function StepperDemo() {
+  // value can reach STEPPER_STEPS.length — one past the last step — which marks
+  // every step (including "build") complete with a tick.
   const [step, setStep] = React.useState(1);
+  const done = step >= STEPPER_STEPS.length;
   return (
     <div className="flex w-full max-w-md flex-col gap-7">
       <Stepper steps={STEPPER_STEPS} value={step} onValueChange={setStep} />
@@ -602,12 +605,8 @@ function StepperDemo() {
         >
           prev
         </Button>
-        <Button
-          size="sm"
-          disabled={step === STEPPER_STEPS.length - 1}
-          onClick={() => setStep((s) => s + 1)}
-        >
-          next
+        <Button size="sm" disabled={done} onClick={() => setStep((s) => s + 1)}>
+          {step >= STEPPER_STEPS.length - 1 ? "finish" : "next"}
         </Button>
       </div>
     </div>

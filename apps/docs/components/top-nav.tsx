@@ -23,7 +23,7 @@ export function TopNav() {
       <Link href="/" className="flex shrink-0 items-center gap-2 group">
         <span className="block h-1.5 w-1.5 rounded-full bg-[var(--eb-green-dot)] [animation:dotBlink_2s_ease-in-out_infinite]" />
         <Mono className="whitespace-nowrap text-[10px] tracking-[0.14em] sm:tracking-[0.16em]">
-          @eduba/ui<span className="hidden sm:inline"> · v0.0.2</span>
+          @eduba/ui<span className="hidden sm:inline"> · v0.0.3</span>
         </Mono>
       </Link>
       <nav className="flex shrink-0 items-center gap-3.5 sm:gap-5">
