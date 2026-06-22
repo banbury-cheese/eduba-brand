@@ -1,0 +1,27 @@
+/* ==========================================================================
+   @eduba/ui — fonts.css  (optional web-font loader)
+   --------------------------------------------------------------------------
+   Loads the Google-hosted faces referenced by the design tokens:
+     · IBM Plex Mono  — mono / labels (--eb-font-mono)
+     · Space Grotesk  — display fallback for self-hosted Diatype (--eb-font-primary)
+
+   This file is kept OUT of the main Tailwind @import chain on purpose: it
+   contains an `@import url()`, which must precede all other rules. Pulling it
+   into `styles.css`/`tokens.css` would let a bundler (lightningcss) flatten it
+   after Tailwind's rules and fail the build with:
+     "@import rules must precede all rules aside from @charset and @layer".
+
+   Load it one of two ways:
+
+   1. <link> in your HTML <head> (simplest, zero ordering concerns):
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" />
+
+   2. CSS import, placed BEFORE `@import "tailwindcss"` so the url() stays first:
+        @import "@eduba/ui/fonts.css";
+        @import "tailwindcss";
+        @import "@eduba/ui/styles.css";
+
+   Diatype is not Google-hosted — self-host it and declare @font-face yourself.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");

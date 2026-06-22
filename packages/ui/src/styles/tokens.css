@@ -4,7 +4,13 @@
    Order of authority: tokens > AGENT_BRIEF > PRODUCT_UI > BRAND.
    ========================================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap");
+/* Web fonts (IBM Plex Mono, Space Grotesk) are intentionally NOT imported here.
+   A remote `@import url()` placed inside the Tailwind v4 @import chain gets
+   flattened to a position after Tailwind's emitted rules, which violates the CSS
+   rule "@import must precede all rules" and breaks the consumer build. Load the
+   fonts out-of-band instead — a Google Fonts <link> in your <head> (recommended),
+   or `@eduba/ui/fonts.css` imported BEFORE "tailwindcss". See the README.
+   Diatype is self-hosted by the consumer via the @font-face blocks below. */
 
 :root {
   /* ===== Colors ========================================================== */
