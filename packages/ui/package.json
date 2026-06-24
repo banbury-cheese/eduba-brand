@@ -2,6 +2,28 @@
   "name": "@eduba/ui",
   "version": "0.0.4",
   "description": "Eduba's brand-aligned React component library, built on Radix + Tailwind v4.",
+  "keywords": [
+    "eduba",
+    "react",
+    "components",
+    "ui",
+    "design-system",
+    "component-library",
+    "radix",
+    "tailwindcss",
+    "tailwind-v4",
+    "headless",
+    "accessible"
+  ],
+  "homepage": "https://ui.eduba.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/banbury-cheese/eduba-brand.git",
+    "directory": "packages/ui"
+  },
+  "bugs": {
+    "url": "https://github.com/banbury-cheese/eduba-brand/issues"
+  },
   "license": "MIT",
   "sideEffects": ["**/*.css"],
   "type": "module",

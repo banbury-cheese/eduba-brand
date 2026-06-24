@@ -2,6 +2,23 @@
 
 Reference bundle for the Eduba visual identity, design tokens, voice, and component patterns. Pass this repo to any agent building an Eduba product.
 
+## 📦 `@eduba/ui` — the React component library
+
+This repo publishes **[`@eduba/ui`](https://www.npmjs.com/package/@eduba/ui)**, the brand's production React component library (Radix + Tailwind v4, paper/wine themes). If you're building a React/Next app, install it from npm — don't copy files.
+
+```bash
+pnpm add @eduba/ui      # or: npm i @eduba/ui · yarn add @eduba/ui
+```
+
+|  |  |
+| --- | --- |
+| **npm** | <https://www.npmjs.com/package/@eduba/ui> |
+| **Docs / live gallery** | <https://ui.eduba.io> |
+| **Source** | [`packages/ui/`](packages/ui) — setup & usage in [`packages/ui/README.md`](packages/ui/README.md) |
+| **For coding agents** | [`AGENTS.md`](AGENTS.md) — where to fetch it and how to use it, at a glance |
+
+> Everything below is brand reference material (tokens, voice, patterns) for building Eduba products by hand or with an agent.
+
 ## How to use with an AI agent
 
 ### Option A — Agent Skill (recommended)
@@ -47,6 +64,9 @@ If files disagree, use this order:
 
 ```
 eduba-brand/
+├── packages/ui/              ← @eduba/ui — published React component library (npm)
+├── apps/docs/                ← Next.js docs site → https://ui.eduba.io
+├── AGENTS.md                 ← Agent entry point: fetch @eduba/ui + how to use it
 ├── AGENT_BRIEF.md            ← Start here. Fast agent-safe brief.
 ├── AGENT_SKILLS.md           ← Per-skill recipes (folder tabs, shell, grain, etc.)
 ├── BRAND.md                  ← Deep reference and rationale.

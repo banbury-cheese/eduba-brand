@@ -2,6 +2,12 @@
 
 Eduba's brand-aligned React component library, built on Radix + Tailwind v4.
 
+[![npm version](https://img.shields.io/npm/v/@eduba/ui.svg)](https://www.npmjs.com/package/@eduba/ui)
+
+- **Install from npm:** [`@eduba/ui`](https://www.npmjs.com/package/@eduba/ui) — `pnpm add @eduba/ui`
+- **Docs & live gallery:** <https://ui.eduba.io>
+- **Source:** [github.com/banbury-cheese/eduba-brand](https://github.com/banbury-cheese/eduba-brand/tree/main/packages/ui)
+
 ## Install
 
 ```bash
