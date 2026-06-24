@@ -1,5 +1,6 @@
 import { H1, Lead, Mono } from "@eduba/ui";
 import { ComponentGallery } from "../../components/component-preview";
+import { SERVER_PREVIEWS } from "../../components/server-previews";
 
 export default function DocsIndexPage() {
   return (
@@ -12,7 +13,7 @@ export default function DocsIndexPage() {
           <Mono>detail →</Mono> for the per-component page.
         </Lead>
       </header>
-      <ComponentGallery />
+      <ComponentGallery serverPreviews={SERVER_PREVIEWS} />
     </div>
   );
 }

@@ -5,6 +5,16 @@
 /* Pick up @eduba/ui sources so Tailwind v4 sees the utility classes used inside the library. */
 @source "../../../packages/ui/src/**/*.{ts,tsx}";
 
+/* Shiki build-time highlighting: each token span carries --shiki-light /
+   --shiki-dark (see lib/highlight.ts). Pick the color for the active theme —
+   default is the light/paper value; wine swaps to the dark value. */
+.eb-shiki span {
+  color: var(--shiki-light, currentColor);
+}
+[data-theme="wine"] .eb-shiki span {
+  color: var(--shiki-dark, currentColor);
+}
+
 /* ===== eduba.io frame pattern ============================================
    Fixed dark-brown shell with an inner white "paper" surface that scrolls.
    Mirrors the .frame > .contentWrapper structure from eduba.io/src/app. */

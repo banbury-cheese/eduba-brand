@@ -1771,8 +1771,15 @@ void BrownBand;
 
 export const PREVIEW_SLUGS = Object.keys(PREVIEWS);
 
-export function ComponentPreview({ slug }: { slug: string }) {
-  const preview = PREVIEWS[slug];
+export function ComponentPreview({
+  slug,
+  override,
+}: {
+  slug: string;
+  /** Build-time, server-rendered preview (e.g. syntax-highlighted code). Wins over the client demo. */
+  override?: React.ReactNode;
+}) {
+  const preview = override ?? PREVIEWS[slug];
   return (
     <div className="flex flex-col gap-3">
       <Mono className="text-muted-foreground">preview</Mono>
@@ -1783,7 +1790,11 @@ export function ComponentPreview({ slug }: { slug: string }) {
   );
 }
 
-export function ComponentGallery() {
+export function ComponentGallery({
+  serverPreviews,
+}: {
+  serverPreviews?: Record<string, React.ReactNode>;
+}) {
   return (
     <div className="flex flex-col gap-12">
       {PREVIEW_SLUGS.map((slug) => (
@@ -1797,7 +1808,7 @@ export function ComponentGallery() {
               detail →
             </a>
           </div>
-          <Frame>{PREVIEWS[slug]}</Frame>
+          <Frame>{serverPreviews?.[slug] ?? PREVIEWS[slug]}</Frame>
         </section>
       ))}
     </div>

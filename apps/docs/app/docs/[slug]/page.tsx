@@ -2,6 +2,7 @@ import { H1, Lead, Mono } from "@eduba/ui";
 import { notFound } from "next/navigation";
 import { ALL_SLUGS, CATALOG } from "../../../components/catalog";
 import { ComponentPreview } from "../../../components/component-preview";
+import { SERVER_PREVIEWS } from "../../../components/server-previews";
 
 export function generateStaticParams() {
   return ALL_SLUGS.map((slug) => ({ slug }));
@@ -23,7 +24,7 @@ export default async function ComponentPage({
         <H1>{slug}</H1>
         <Lead>{meta.description}</Lead>
       </header>
-      <ComponentPreview slug={slug} />
+      <ComponentPreview slug={slug} override={SERVER_PREVIEWS[slug]} />
     </div>
   );
 }

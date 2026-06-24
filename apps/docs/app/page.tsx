@@ -19,6 +19,7 @@ import {
   UnderlineDraw,
 } from "@eduba/ui";
 import Link from "next/link";
+import { highlight } from "../lib/highlight";
 
 const PHASES: {
   id: string;
@@ -256,6 +257,7 @@ export default function HomePage() {
               title="install the package"
               blurb="Add the package, import the stylesheet once, wrap your app in the theme provider. Updates flow through your lockfile."
               file="terminal"
+              lang="bash"
               code={`pnpm add @eduba/ui
 
 # then, in your global stylesheet
@@ -328,13 +330,14 @@ export default function HomePage() {
   );
 }
 
-function InstallCard({
+async function InstallCard({
   id,
   tag,
   title,
   blurb,
   file,
   code,
+  lang = "bash",
 }: {
   id: string;
   tag?: string;
@@ -342,7 +345,9 @@ function InstallCard({
   blurb: string;
   file: string;
   code: string;
+  lang?: string;
 }) {
+  const html = await highlight(code, lang);
   return (
     <Card className="flex flex-col">
       <CardHeader dashedDivider>
@@ -366,7 +371,8 @@ function InstallCard({
             <Mono className="text-[9px] opacity-55">{file}</Mono>
           </div>
           <pre className="overflow-x-auto bg-[var(--eb-muted-bg)] px-4 py-3.5 font-mono text-[12px] leading-relaxed text-[var(--eb-fg)]">
-            <code>{code}</code>
+            {/* biome-ignore lint/security/noDangerouslySetInnerHtml: build-time Shiki highlight output */}
+            <code dangerouslySetInnerHTML={{ __html: html }} />
           </pre>
         </div>
       </CardContent>
