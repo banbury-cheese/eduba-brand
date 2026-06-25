@@ -61,6 +61,19 @@ export default function Page() {
 }
 ```
 
+## Stylesheet exports
+
+Three CSS entry points are published:
+
+| Import | Contains | Use when |
+| --- | --- | --- |
+| `@eduba/ui/styles.css` | **Full bundle** — tokens, the Tailwind `@theme` mapping + keyframes, base machinery, and the opinionated `body{}` | Default — this is what components expect |
+| `@eduba/ui/base.css` | Resets, focus ring, motion baselines, `.filmGrain` / `.eb-dot` — **no opinionated `body{}`** | You want the machinery but your own page shell |
+| `@eduba/ui/tokens.css` | Raw `--eb-*` design tokens (CSS variables + per-theme blocks) only | You only want the brand values, no Tailwind/resets |
+| `@eduba/ui/theme.css` | The Tailwind v4 `@theme` mapping (generates `bg-primary`, `animate-*`, …) **plus the animation keyframes** | Composing your own pipeline; requires Tailwind v4 |
+
+For components to render **and animate** correctly, import `styles.css`. To compose granularly without the opinionated `body{}`, layer `tokens.css` + `theme.css` + `base.css`.
+
 ## Fonts
 
 The design tokens reference three families:

@@ -1,6 +1,6 @@
 {
   "name": "@eduba/ui",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Eduba's brand-aligned React component library, built on Radix + Tailwind v4.",
   "keywords": [
     "eduba",
@@ -47,6 +47,7 @@
       "import": "./dist/components/form.js"
     },
     "./styles.css": "./styles.css",
+    "./base.css": "./src/styles/base.css",
     "./fonts.css": "./src/styles/fonts.css",
     "./tokens.css": "./src/styles/tokens.css",
     "./theme.css": "./src/styles/theme.css"

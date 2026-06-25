@@ -481,7 +481,7 @@ function SidebarDemo() {
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>
-          <Mono className="text-[10px] text-muted-foreground">v0.0.4 · paper</Mono>
+          <Mono className="text-[10px] text-muted-foreground">v0.0.5 · paper</Mono>
         </SidebarFooter>
       </Sidebar>
       <div className="flex min-w-0 flex-1 flex-col gap-2 p-5">

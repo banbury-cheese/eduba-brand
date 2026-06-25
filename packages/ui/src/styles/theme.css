@@ -80,7 +80,8 @@
   --duration-modal: var(--eb-dur-modal);
   --duration-drawer: var(--eb-dur-drawer);
 
-  /* Animations (keyframes defined in globals.css) */
+  /* Animations — keyframes are defined below this block (kept beside their
+     --animate-* tokens so importing theme.css alone yields working animations). */
   --animate-collapsible-down: collapsible-down 250ms var(--ease-out);
   --animate-collapsible-up: collapsible-up 200ms var(--ease-out);
   --animate-shimmer: shimmer 1.6s var(--ease-in-out) infinite;
@@ -89,4 +90,135 @@
   --animate-marquee: marquee 14s linear infinite;
   --animate-marquee-reverse: marquee-reverse 14s linear infinite;
   --animate-spin-slow: spin 2s linear infinite;
+}
+
+/* ==========================================================================
+   Keyframes — moved here from globals.css so they travel with the --animate-*
+   tokens above. A granular `@eduba/ui/theme.css` import therefore yields
+   working animations, not utility classes pointing at missing keyframes.
+   Defined at top level (not inside @theme) so they always emit, matching the
+   prior behaviour. `spin` is provided by Tailwind / tw-animate-css.
+   ========================================================================== */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    transform: translate(5%, -10%);
+  }
+  40% {
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    transform: translate(-10%, 5%);
+  }
+  60% {
+    transform: translate(15%, 0);
+  }
+  70% {
+    transform: translate(0, 10%);
+  }
+  80% {
+    transform: translate(-15%, 0);
+  }
+  90% {
+    transform: translate(10%, 5%);
+  }
+}
+
+@keyframes dotBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Glow-sweep for Button variant="glow" */
+@keyframes glow-sweep {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* FAQ-style plus/minus accordion icon (used by Accordion with iconVariant="plus") */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+/* Collapsible open/close — same curve as accordion, driven by Radix's measured height. */
+@keyframes collapsible-down {
+  from {
+    height: 0;
+    opacity: 0.6;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+    opacity: 1;
+  }
+}
+@keyframes collapsible-up {
+  from {
+    height: var(--radix-collapsible-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0.6;
+  }
 }
