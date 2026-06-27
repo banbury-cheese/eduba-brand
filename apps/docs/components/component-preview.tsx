@@ -257,6 +257,7 @@ import type { ColumnDef } from "@tanstack/react-table";
 import * as React from "react";
 import { useForm } from "react-hook-form";
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { UI_VERSION } from "../lib/version";
 
 function Frame({ children }: { children: React.ReactNode }) {
   return (
@@ -481,7 +482,7 @@ function SidebarDemo() {
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>
-          <Mono className="text-[10px] text-muted-foreground">v0.0.5 · paper</Mono>
+          <Mono className="text-[10px] text-muted-foreground">v{UI_VERSION} · paper</Mono>
         </SidebarFooter>
       </Sidebar>
       <div className="flex min-w-0 flex-1 flex-col gap-2 p-5">

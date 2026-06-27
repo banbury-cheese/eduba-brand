@@ -34,6 +34,7 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./package.json": "./package.json",
     "./chart": {
       "types": "./dist/components/chart.d.ts",
       "import": "./dist/components/chart.js"

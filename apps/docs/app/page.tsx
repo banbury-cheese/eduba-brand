@@ -20,6 +20,7 @@ import {
 } from "@eduba/ui";
 import Link from "next/link";
 import { highlight } from "../lib/highlight";
+import { UI_VERSION } from "../lib/version";
 
 const PHASES: {
   id: string;
@@ -107,7 +108,7 @@ export default function HomePage() {
       >
         <div className="mb-8 flex items-baseline justify-between md:mb-10">
           <SectionLabel index="000" label="overview" />
-          <Mono className="hidden text-[10px] opacity-50 sm:block">v0.0.5 · brand-native</Mono>
+          <Mono className="hidden text-[10px] opacity-50 sm:block">v{UI_VERSION} · brand-native</Mono>
         </div>
 
         <h1
