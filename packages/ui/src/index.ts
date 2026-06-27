@@ -38,6 +38,7 @@ export * from "./components/empty";
 export * from "./components/field";
 export * from "./components/file-upload";
 export * from "./components/form";
+export * from "./components/frame-shell";
 export * from "./components/hover-card";
 export * from "./components/input";
 export * from "./components/input-group";

@@ -96,13 +96,23 @@ export function useScramble({
     rafRef.current = requestAnimationFrame(tick);
   }, [text, duration, speed, chars]);
 
+  // Cancel an in-flight scramble and snap back to the resting text. Mirrors
+  // eduba.io's resetLabel on mouse-leave, so leaving mid-scramble doesn't keep
+  // animating after the pointer is gone.
+  const reset = React.useCallback(() => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = null;
+    startRef.current = null;
+    setOutput(text);
+  }, [text]);
+
   React.useEffect(() => {
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, []);
 
-  return { output, run };
+  return { output, run, reset };
 }
 
 export function ScrambleText({
