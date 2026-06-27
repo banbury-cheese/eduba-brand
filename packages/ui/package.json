@@ -1,6 +1,6 @@
 {
   "name": "@eduba/ui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Eduba's brand-aligned React component library, built on Radix + Tailwind v4.",
   "keywords": [
     "eduba",
@@ -25,10 +25,19 @@
     "url": "https://github.com/banbury-cheese/eduba-brand/issues"
   },
   "license": "MIT",
-  "sideEffects": ["**/*.css"],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "type": "module",
-  "files": ["dist", "src/styles", "styles.css", "README.md"],
-  "publishConfig": { "access": "public" },
+  "files": [
+    "dist",
+    "src/styles",
+    "styles.css",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -110,10 +119,18 @@
     "recharts": "^2.15.0"
   },
   "peerDependenciesMeta": {
-    "@tanstack/react-table": { "optional": true },
-    "gsap": { "optional": true },
-    "react-hook-form": { "optional": true },
-    "recharts": { "optional": true }
+    "@tanstack/react-table": {
+      "optional": true
+    },
+    "gsap": {
+      "optional": true
+    },
+    "react-hook-form": {
+      "optional": true
+    },
+    "recharts": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
