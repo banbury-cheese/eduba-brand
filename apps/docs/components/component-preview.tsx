@@ -48,10 +48,6 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type ChartConfig,
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
   Checkbox,
   Chip,
   CodeBlock,
@@ -73,7 +69,6 @@ import {
   ContextMenuSeparator,
   ContextMenuTrigger,
   DashedFrame,
-  DataTable,
   DatePicker,
   type DateRange,
   DateRangePicker,
@@ -109,13 +104,6 @@ import {
   FieldDescription,
   FieldLabel,
   FileUpload,
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
   H1,
   H2,
   H3,
@@ -253,6 +241,23 @@ import {
   navigationMenuTriggerStyle,
   toast,
 } from "@eduba/ui";
+// Subpath-only components — they pull optional peers, so they're not in the barrel.
+import {
+  type ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@eduba/ui/chart";
+import { DataTable } from "@eduba/ui/data-table";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@eduba/ui/form";
 import type { ColumnDef } from "@tanstack/react-table";
 import * as React from "react";
 import { useForm } from "react-hook-form";

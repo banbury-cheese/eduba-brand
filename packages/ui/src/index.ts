@@ -5,6 +5,12 @@ export * from "./lib/theme-provider";
 export * from "./lib/theme-script";
 
 // ===== components ============================================================
+// NOTE: chart, data-table, and form are intentionally NOT re-exported here. Each
+// pulls an optional peer (recharts, @tanstack/react-table, react-hook-form), so
+// they ship as subpath-only entries — import them from "@eduba/ui/chart",
+// "@eduba/ui/data-table", and "@eduba/ui/form". Keeping them out of the barrel
+// means a bare `@eduba/ui` import never forces consumers to install a charting +
+// forms stack. Do not add them below.
 export * from "./components/accordion";
 export * from "./components/alert";
 export * from "./components/alert-dialog";
@@ -19,7 +25,6 @@ export * from "./components/button-group";
 export * from "./components/calendar";
 export * from "./components/card";
 export * from "./components/carousel";
-export * from "./components/chart";
 export * from "./components/checkbox";
 export * from "./components/chip";
 export * from "./components/code-block";
@@ -27,7 +32,6 @@ export * from "./components/collapsible";
 export * from "./components/combobox";
 export * from "./components/command";
 export * from "./components/context-menu";
-export * from "./components/data-table";
 export * from "./components/date-picker";
 export * from "./components/date-range-picker";
 export * from "./components/dialog";
@@ -37,7 +41,6 @@ export * from "./components/dropdown-menu";
 export * from "./components/empty";
 export * from "./components/field";
 export * from "./components/file-upload";
-export * from "./components/form";
 export * from "./components/frame-shell";
 export * from "./components/hover-card";
 export * from "./components/input";
