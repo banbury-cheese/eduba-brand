@@ -157,10 +157,14 @@ export function MultiSelect({
                       )}
                     >
                       {isOn ? (
+                        // Stroke is pinned to the checkbox foreground (not `currentColor`)
+                        // so CommandItem's `[&_svg]` colour rules — which turn the active
+                        // item's icons to accent-foreground (== the brown checkbox bg) —
+                        // can't make the checkmark vanish.
                         <svg viewBox="0 0 16 16" aria-hidden="true" className="h-3 w-3">
                           <path
                             d="M3 8.5l3.5 3L13 4.5"
-                            stroke="currentColor"
+                            stroke="var(--color-primary-foreground)"
                             strokeWidth="2"
                             fill="none"
                             strokeLinecap="round"

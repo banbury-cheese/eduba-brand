@@ -13,10 +13,17 @@ export interface HoldToConfirmProps
   onConfirm?: () => void;
   /** Use Slot to pass an existing button. Note: the contrasting fill label is skipped (children can't be duplicated into a Slot). */
   asChild?: boolean;
+  /**
+   * Classes for the progress fill overlay (the colour that sweeps across as you
+   * hold). Defaults to `bg-destructive text-[var(--eb-white)]`; override per
+   * instance, e.g. `fillClassName="bg-primary text-primary-foreground"`. Only
+   * applies to the default (non-`asChild`) rendering.
+   */
+  fillClassName?: string;
 }
 
 export const HoldToConfirm = React.forwardRef<HTMLButtonElement, HoldToConfirmProps>(
-  ({ hold = 1800, onConfirm, asChild, className, children, ...props }, ref) => {
+  ({ hold = 1800, onConfirm, asChild, className, fillClassName, children, ...props }, ref) => {
     const [progress, setProgress] = React.useState(0);
     const startTimeRef = React.useRef<number | null>(null);
     const rafRef = React.useRef<number | null>(null);
@@ -87,7 +94,11 @@ export const HoldToConfirm = React.forwardRef<HTMLButtonElement, HoldToConfirmPr
                 drowns in the red fill as it sweeps across. */}
             <span
               aria-hidden="true"
-              className="absolute inset-0 z-10 pointer-events-none inline-flex items-center justify-center gap-2 bg-destructive text-[var(--eb-white)]"
+              className={cn(
+                "absolute inset-0 z-10 pointer-events-none inline-flex items-center justify-center gap-2",
+                "bg-destructive text-[var(--eb-white)]",
+                fillClassName,
+              )}
               style={{ clipPath: clip }}
             >
               {children}

@@ -115,7 +115,8 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
       <div
         ref={ref}
         className={cn(
-          "overflow-hidden rounded-md border border-border bg-[var(--eb-muted-bg)]",
+          // Clean surface: white on paper, deep wine on dark — delineated by the border.
+          "overflow-hidden rounded-md border border-border bg-background",
           className,
         )}
         {...props}
