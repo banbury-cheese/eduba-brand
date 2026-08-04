@@ -88,7 +88,7 @@ function Footer() {
         </div>
         {[
           { h:'PRODUCTS', items:['Scribe','Study-Arcade','Vox-Meet','Clief Notes'] },
-          { h:'RESEARCH', items:['ICR Soft Power','Ethics Engine','Vigilore','Policy Briefs'] },
+          { h:'RESEARCH', items:['ICR Soft Power','Ethics Engine','Policy Briefs'] },
           { h:'ELSEWHERE', items:['Substack →','LinkedIn →','GitHub →'] },
         ].map(col => (
           <div key={col.h}>

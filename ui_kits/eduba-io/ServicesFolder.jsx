@@ -28,7 +28,7 @@ const servicesItems = [
   { id:'build', title:'Build What Makes Sense',
     headline:'We ship systems with the team still in the loop.',
     description:'For the problems that do belong to AI, we build the systems. Multi-agent platforms, data pipelines, governance tooling, and production workflows.',
-    projects:['VIGILORE COMPLIANCE PLATFORM','ETHICS ENGINE RESEARCH','ICR SOFT POWER RESEARCH'],
+    projects:['ETHICS ENGINE RESEARCH','ICR SOFT POWER RESEARCH'],
     theme:{ background:'#f9ecdf', title:'#5d3136', dots:'rgba(66,29,36,0.35)', border:'rgba(66,29,36,0.2)' }},
   { id:'govern', title:'Govern What Works',
     headline:'Every live system needs a way to measure, hold, and stop.',

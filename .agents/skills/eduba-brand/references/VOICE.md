@@ -62,7 +62,6 @@ Proof points available:
 - 600+ people trained (Pacific Life, Colgate-Palmolive, KPMG UK, IAG)
 - 95% sustained adoption vs ~10% industry average
 - 6,000–9,000 hours saved annually per client
-- VigilOre: 160+ hours → under 5 minutes
 
 Positioning: "When not to use AI" — the counter-position that earns trust.
 

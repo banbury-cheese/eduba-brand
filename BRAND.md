@@ -436,7 +436,6 @@ Decorative triangular corner element. File: `assets/svgs/arrow-corner.svg`.
 - 600+ people trained across Pacific Life, Colgate-Palmolive, KPMG UK, IAG, University of Edinburgh
 - 95% sustained adoption after 30 days (industry average: ~10%)
 - 6,000–9,000 hours saved annually from Pacific Life/Colgate workflows
-- VigilOre: 160+ hours of manual compliance reduced to under 5 minutes
 - Veteran-owned: 8 years USMC cryptographic systems and F-35/F-18 avionics
 
 **Sentence rhythm:** Short. Declarative. Then the longer explanation. Then short again.

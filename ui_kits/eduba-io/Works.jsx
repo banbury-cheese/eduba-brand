@@ -18,10 +18,6 @@ const worksItems = [
     tags:['STRATEGIC AI','EXECUTIVE WORKSHOP','GLOBAL CONSULTANCY'],
     summary:'40+ senior executives trained on strategic AI decision-making — built around one core question: when should the answer be no?',
     theme:{ bg:'#5d3136', title:'#fefbf6', meta:'rgba(254,251,246,0.65)', tagBg:'rgba(254,251,246,0.14)', tagText:'#fefbf6', divider:'rgba(254,251,246,0.28)', placeholderBg:'rgba(254,251,246,0.08)', placeholderText:'rgba(254,251,246,0.4)', summary:'rgba(254,251,246,0.8)' }},
-  { id:'vigilore', badge:'VigilOre', title:'VigilOre Compliance Platform', year:'2024', client:'ARMETOUR',
-    tags:['DEFENSE','MULTI-AGENT SYSTEMS','FULL PRODUCT BUILD'],
-    summary:'Multi-agent compliance platform for DRC mining operations. 160+ hours of manual work per cycle reduced to under 5 minutes.',
-    theme:{ bg:'#f9ecdf', title:'#5d3136', meta:'rgba(93,49,54,0.65)', tagBg:'rgba(93,49,54,0.09)', tagText:'#5d3136', divider:'rgba(93,49,54,0.16)', placeholderBg:'rgba(93,49,54,0.06)', placeholderText:'rgba(93,49,54,0.4)', summary:'rgba(93,49,54,0.8)' }},
 ];
 
 function Works() {
